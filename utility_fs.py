@@ -113,7 +113,7 @@ def hist_miss_by_cols(data, data_name):
                 fontweight='bold')
     plt.show()
 ##
-def missing_by_column(data, data_name):
+def missing_by_column(data, data_name, n_features):
     """
     Prints the percentage of missing values per column for a given dataset 
     type and both cities, in descending order of percentage missing.  
@@ -122,6 +122,7 @@ def missing_by_column(data, data_name):
         data - hierarchical dict with city as the first level and 
                 dataset type — calendar, listings, reviews — as the second.
         data_name - 'calendar', 'listings', or 'reviews'
+        n_features - number of features to print
     Returns:
         None - prints missing values per column statistics.
     """
@@ -136,7 +137,7 @@ def missing_by_column(data, data_name):
         sorted_pc = pc.sort_values(ascending=False).apply(
                         lambda x: '{:2.1f}%'.format(x))
         print('\n{:^25}'.format('— ' + city + ' —'))
-        print(sorted_pc)
+        print(sorted_pc[0:n_features + 1])
 ##
 def count_rows_missing(data, city, data_name):
     """

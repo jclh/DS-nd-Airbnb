@@ -12888,11 +12888,11 @@ height=343
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[86]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Call function &#39;missing_by_column()&#39;</span>
-<span class="n">utils</span><span class="o">.</span><span class="n">missing_by_column</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">data_name</span><span class="o">=</span><span class="s1">&#39;listings&#39;</span><span class="p">)</span>
+<span class="n">utils</span><span class="o">.</span><span class="n">missing_by_column</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">data_name</span><span class="o">=</span><span class="s1">&#39;listings&#39;</span><span class="p">,</span> <span class="n">n_features</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12912,132 +12912,52 @@ height=343
 <pre>Percentage of missing values per column in listings.csv
 
        — Boston —        
-neighbourhood_group_cleansed        100.0%
-jurisdiction_names                  100.0%
-license                             100.0%
-has_availability                    100.0%
-square_feet                          98.4%
-monthly_price                        75.2%
-weekly_price                         75.1%
-security_deposit                     62.6%
-notes                                55.1%
-interaction                          43.3%
-access                               41.5%
-neighborhood_overview                39.5%
-host_about                           36.5%
-transit                              36.0%
-house_rules                          33.2%
-cleaning_fee                         30.9%
-space                                29.5%
-review_scores_accuracy               23.0%
-review_scores_location               22.9%
-review_scores_value                  22.9%
-review_scores_checkin                22.9%
-review_scores_cleanliness            22.8%
-review_scores_communication          22.8%
-review_scores_rating                 22.7%
-reviews_per_month                    21.1%
-first_review                         21.1%
-last_review                          21.1%
-thumbnail_url                        16.7%
-medium_url                           16.7%
-xl_picture_url                       16.7%
-                                     ...  
-calendar_updated                      0.0%
-availability_30                       0.0%
-availability_60                       0.0%
-availability_90                       0.0%
-calendar_last_scraped                 0.0%
-host_has_profile_pic                  0.0%
-number_of_reviews                     0.0%
-requires_license                      0.0%
-instant_bookable                      0.0%
-cancellation_policy                   0.0%
-require_guest_profile_picture         0.0%
-require_guest_phone_verification      0.0%
-extra_people                          0.0%
-guests_included                       0.0%
-price                                 0.0%
-amenities                             0.0%
-bed_type                              0.0%
-accommodates                          0.0%
-room_type                             0.0%
-is_location_exact                     0.0%
-longitude                             0.0%
-latitude                              0.0%
-calculated_host_listings_count        0.0%
-country_code                          0.0%
-smart_location                        0.0%
-state                                 0.0%
-neighbourhood_cleansed                0.0%
-street                                0.0%
-host_identity_verified                0.0%
-id                                    0.0%
-Length: 95, dtype: object
+neighbourhood_group_cleansed    100.0%
+jurisdiction_names              100.0%
+license                         100.0%
+has_availability                100.0%
+square_feet                      98.4%
+monthly_price                    75.2%
+weekly_price                     75.1%
+security_deposit                 62.6%
+notes                            55.1%
+interaction                      43.3%
+access                           41.5%
+neighborhood_overview            39.5%
+host_about                       36.5%
+transit                          36.0%
+house_rules                      33.2%
+cleaning_fee                     30.9%
+space                            29.5%
+review_scores_accuracy           23.0%
+review_scores_location           22.9%
+review_scores_value              22.9%
+review_scores_checkin            22.9%
+dtype: object
 
        — Seattle —       
-license                             100.0%
-square_feet                          97.5%
-monthly_price                        60.3%
-security_deposit                     51.1%
-weekly_price                         47.4%
-notes                                42.1%
-neighborhood_overview                27.0%
-cleaning_fee                         27.0%
-transit                              24.5%
-host_about                           22.5%
-host_acceptance_rate                 20.2%
-review_scores_accuracy               17.2%
-review_scores_checkin                17.2%
-review_scores_value                  17.2%
-review_scores_location               17.2%
-review_scores_cleanliness            17.1%
-review_scores_communication          17.1%
-review_scores_rating                 16.9%
-reviews_per_month                    16.4%
-first_review                         16.4%
-last_review                          16.4%
-space                                14.9%
-host_response_time                   13.7%
-host_response_rate                   13.7%
-neighbourhood                        10.9%
-xl_picture_url                        8.4%
-thumbnail_url                         8.4%
-medium_url                            8.4%
-host_neighbourhood                    7.9%
-summary                               4.6%
-                                     ...  
-availability_60                       0.0%
-availability_90                       0.0%
-availability_365                      0.0%
-number_of_reviews                     0.0%
-minimum_nights                        0.0%
-requires_license                      0.0%
-jurisdiction_names                    0.0%
-instant_bookable                      0.0%
-cancellation_policy                   0.0%
-require_guest_profile_picture         0.0%
-require_guest_phone_verification      0.0%
-maximum_nights                        0.0%
-extra_people                          0.0%
-neighbourhood_group_cleansed          0.0%
-calculated_host_listings_count        0.0%
-city                                  0.0%
-state                                 0.0%
-market                                0.0%
-smart_location                        0.0%
-country_code                          0.0%
-country                               0.0%
-longitude                             0.0%
-guests_included                       0.0%
-is_location_exact                     0.0%
-room_type                             0.0%
-accommodates                          0.0%
-bed_type                              0.0%
-amenities                             0.0%
-price                                 0.0%
-id                                    0.0%
-Length: 92, dtype: object
+license                        100.0%
+square_feet                     97.5%
+monthly_price                   60.3%
+security_deposit                51.1%
+weekly_price                    47.4%
+notes                           42.1%
+neighborhood_overview           27.0%
+cleaning_fee                    27.0%
+transit                         24.5%
+host_about                      22.5%
+host_acceptance_rate            20.2%
+review_scores_accuracy          17.2%
+review_scores_checkin           17.2%
+review_scores_value             17.2%
+review_scores_location          17.2%
+review_scores_cleanliness       17.1%
+review_scores_communication     17.1%
+review_scores_rating            16.9%
+reviews_per_month               16.4%
+first_review                    16.4%
+last_review                     16.4%
+dtype: object
 </pre>
 </div>
 </div>
@@ -15997,179 +15917,14 @@ dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[69]:</div>
+<div class="prompt input_prompt">In&nbsp;[81]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Display first few rows of created dataframe</span>
-<span class="n">df_lm</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="c1">#df_lm.head()</span>
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[69]:</div>
-
-
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>listing_id</th>
-      <th>date</th>
-      <th>available</th>
-      <th>price</th>
-      <th>price_re</th>
-      <th>available_re</th>
-      <th>date_re</th>
-      <th>day_of_week</th>
-      <th>day_of_year</th>
-      <th>day_of_sample</th>
-      <th>total_reviews</th>
-      <th>fri_sat</th>
-      <th>id</th>
-      <th>neighbourhood_cleansed</th>
-      <th>zipcode</th>
-      <th>bedrooms</th>
-      <th>accommodates</th>
-      <th>boston</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>365</th>
-      <td>3075044</td>
-      <td>2017-08-22</td>
-      <td>t</td>
-      <td>$65.00</td>
-      <td>65.0</td>
-      <td>1</td>
-      <td>2017-08-22</td>
-      <td>1</td>
-      <td>234</td>
-      <td>350</td>
-      <td>36</td>
-      <td>0</td>
-      <td>3075044</td>
-      <td>Roslindale</td>
-      <td>02131</td>
-      <td>1.0</td>
-      <td>2</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>366</th>
-      <td>3075044</td>
-      <td>2017-08-21</td>
-      <td>t</td>
-      <td>$65.00</td>
-      <td>65.0</td>
-      <td>1</td>
-      <td>2017-08-21</td>
-      <td>0</td>
-      <td>233</td>
-      <td>349</td>
-      <td>36</td>
-      <td>0</td>
-      <td>3075044</td>
-      <td>Roslindale</td>
-      <td>02131</td>
-      <td>1.0</td>
-      <td>2</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>367</th>
-      <td>3075044</td>
-      <td>2017-08-20</td>
-      <td>t</td>
-      <td>$65.00</td>
-      <td>65.0</td>
-      <td>1</td>
-      <td>2017-08-20</td>
-      <td>6</td>
-      <td>232</td>
-      <td>348</td>
-      <td>36</td>
-      <td>0</td>
-      <td>3075044</td>
-      <td>Roslindale</td>
-      <td>02131</td>
-      <td>1.0</td>
-      <td>2</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>368</th>
-      <td>3075044</td>
-      <td>2017-08-19</td>
-      <td>t</td>
-      <td>$75.00</td>
-      <td>75.0</td>
-      <td>1</td>
-      <td>2017-08-19</td>
-      <td>5</td>
-      <td>231</td>
-      <td>347</td>
-      <td>36</td>
-      <td>1</td>
-      <td>3075044</td>
-      <td>Roslindale</td>
-      <td>02131</td>
-      <td>1.0</td>
-      <td>2</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>369</th>
-      <td>3075044</td>
-      <td>2017-08-18</td>
-      <td>t</td>
-      <td>$75.00</td>
-      <td>75.0</td>
-      <td>1</td>
-      <td>2017-08-18</td>
-      <td>4</td>
-      <td>230</td>
-      <td>346</td>
-      <td>36</td>
-      <td>1</td>
-      <td>3075044</td>
-      <td>Roslindale</td>
-      <td>02131</td>
-      <td>1.0</td>
-      <td>2</td>
-      <td>1</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
-
-</div>
-
 </div>
 </div>
 
@@ -16366,11 +16121,17 @@ log(price_{it}) = \alpha + \beta.total\_reviews_i + \gamma.f(max\_occupancy_i, n
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[75]:</div>
+<div class="prompt input_prompt">In&nbsp;[171]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Print estimates returned by sm.OLS()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Extract results summary from OLS fit</span>
+<span class="n">summary_tables</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">summary2</span><span class="p">()</span>
+<span class="c1"># Select parameters of interest and rename labels</span>
+<span class="n">new_index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s1">&#39;alpha&#39;</span><span class="p">,</span> <span class="s1">&#39;beta&#39;</span><span class="p">])</span>
+<span class="n">summary_tables</span><span class="o">.</span><span class="n">tables</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">summary_tables</span><span class="o">.</span><span class="n">tables</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="n">new_index</span><span class="p">)</span>
+<span class="c1"># Select and print table of results</span>
+<span class="n">summary_tables</span><span class="o">.</span><span class="n">tables</span> <span class="o">=</span> <span class="n">summary_tables</span><span class="o">.</span><span class="n">tables</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">summary_tables</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -16387,148 +16148,23 @@ log(price_{it}) = \alpha + \beta.total\_reviews_i + \gamma.f(max\_occupancy_i, n
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>                            OLS Regression Results                            
-==============================================================================
-Dep. Variable:               price_re   R-squared:                       0.623
-Model:                            OLS   Adj. R-squared:                  0.623
-Method:                 Least Squares   F-statistic:                 1.283e+05
-Date:                Thu, 04 Apr 2019   Prob (F-statistic):               0.00
-Time:                        11:40:57   Log-Likelihood:            -8.2708e+05
-No. Observations:             1577499   AIC:                         1.654e+06
-Df Residuals:                 1577383   BIC:                         1.656e+06
-Df Model:                         115                                         
-Covariance Type:              cluster                                         
-==============================================================================
-                 coef    std err          z      P&gt;|z|      [0.025      0.975]
-------------------------------------------------------------------------------
-const          4.7307      0.009    505.556      0.000       4.712       4.749
-x1            -0.0008      0.000     -7.401      0.000      -0.001      -0.001
-x2             0.3866      0.008     46.798      0.000       0.370       0.403
-x3             0.0960      0.009     10.146      0.000       0.077       0.115
-x4             0.0252      0.020      1.230      0.219      -0.015       0.065
-x5            -0.1043      0.012     -8.687      0.000      -0.128      -0.081
-x6            -0.0267      0.047     -0.566      0.571      -0.119       0.066
-x7             0.2012      0.072      2.785      0.005       0.060       0.343
-x8             0.0066      0.045      0.146      0.884      -0.082       0.095
-x9            -0.2042      0.122     -1.669      0.095      -0.444       0.036
-x10           -0.0868      0.050     -1.740      0.082      -0.184       0.011
-x11            0.7739      0.026     29.908      0.000       0.723       0.825
-x12            0.7770      0.099      7.833      0.000       0.583       0.971
-x13            0.6997      0.040     17.325      0.000       0.621       0.779
-x14            0.2918      0.022     13.057      0.000       0.248       0.336
-x15           -0.3218      0.128     -2.505      0.012      -0.574      -0.070
-x16           -0.0747      0.145     -0.517      0.605      -0.358       0.209
-x17            0.0209      0.046      0.453      0.651      -0.070       0.112
-x18           -0.2964      0.081     -3.677      0.000      -0.454      -0.138
-x19            0.0910      0.024      3.868      0.000       0.045       0.137
-x20           -0.1041      0.076     -1.362      0.173      -0.254       0.046
-x21           -0.0405      0.088     -0.461      0.645      -0.213       0.132
-x22            0.3776      0.039      9.601      0.000       0.301       0.455
-x23            0.3514      0.066      5.295      0.000       0.221       0.481
-x24            0.8224      0.058     14.286      0.000       0.710       0.935
-x25           -0.2396      0.047     -5.121      0.000      -0.331      -0.148
-x26           -0.3130      0.085     -3.699      0.000      -0.479      -0.147
-x27           -0.2140      0.026     -8.274      0.000      -0.265      -0.163
-x28            0.6509      0.050     13.150      0.000       0.554       0.748
-x29           -0.3511      0.120     -2.933      0.003      -0.586      -0.116
-x30            0.1359      0.036      3.765      0.000       0.065       0.207
-x31            0.2244      0.051      4.423      0.000       0.125       0.324
-x32            0.0427      0.060      0.710      0.478      -0.075       0.161
-x33           -0.0959      0.092     -1.048      0.295      -0.275       0.084
-x34            0.0666      0.133      0.502      0.616      -0.194       0.327
-x35            0.7377      0.040     18.396      0.000       0.659       0.816
-x36            0.2298      0.038      5.979      0.000       0.154       0.305
-x37            0.0693      0.035      1.967      0.049       0.000       0.138
-x38           -0.1292      0.087     -1.483      0.138      -0.300       0.042
-x39           -0.1711      0.078     -2.203      0.028      -0.323      -0.019
-x40           -0.2110      0.048     -4.406      0.000      -0.305      -0.117
-x41            0.0709      0.058      1.217      0.224      -0.043       0.185
-x42           -0.2734      0.046     -6.009      0.000      -0.363      -0.184
-x43           -0.2820      0.062     -4.563      0.000      -0.403      -0.161
-x44            0.2695      0.109      2.474      0.013       0.056       0.483
-x45           -0.1438      0.136     -1.059      0.290      -0.410       0.122
-x46           -0.2077      0.057     -3.672      0.000      -0.319      -0.097
-x47           -0.1176      0.266     -0.442      0.659      -0.639       0.404
-x48           -0.2852      0.055     -5.224      0.000      -0.392      -0.178
-x49            0.1263      0.372      0.340      0.734      -0.602       0.855
-x50            0.0939      0.104      0.905      0.365      -0.109       0.297
-x51            0.0880      0.130      0.676      0.499      -0.167       0.343
-x52            0.1117      0.025      4.485      0.000       0.063       0.160
-x53            0.0125      0.098      0.128      0.899      -0.179       0.204
-x54           -0.0746      0.070     -1.071      0.284      -0.211       0.062
-x55            1.1438      0.009    127.251      0.000       1.126       1.161
-x56           -0.1695      0.047     -3.632      0.000      -0.261      -0.078
-x57            0.0274      0.132      0.207      0.836      -0.232       0.287
-x58            0.3238      0.046      7.079      0.000       0.234       0.413
-x59           -0.1833      0.044     -4.154      0.000      -0.270      -0.097
-x60            0.1532      0.103      1.484      0.138      -0.049       0.356
-x61            0.0773      0.073      1.054      0.292      -0.066       0.221
-x62           -0.0287      0.046     -0.630      0.529      -0.118       0.061
-x63           -0.3423      0.047     -7.265      0.000      -0.435      -0.250
-x64           -0.3421      0.055     -6.187      0.000      -0.450      -0.234
-x65           -0.1817      0.077     -2.353      0.019      -0.333      -0.030
-x66           -0.1675      0.102     -1.647      0.100      -0.367       0.032
-x67           -0.2588      0.069     -3.750      0.000      -0.394      -0.124
-x68            0.0116      0.030      0.392      0.695      -0.046       0.069
-x69            0.1990      0.070      2.830      0.005       0.061       0.337
-x70           -0.0115      0.074     -0.155      0.876      -0.156       0.133
-x71           -0.1330      0.052     -2.543      0.011      -0.236      -0.030
-x72            0.0722      0.071      1.012      0.311      -0.068       0.212
-x73            0.0280      0.116      0.241      0.809      -0.199       0.255
-x74           -0.1788      0.041     -4.325      0.000      -0.260      -0.098
-x75           -0.2363      0.070     -3.370      0.001      -0.374      -0.099
-x76           -0.2363      0.063     -3.760      0.000      -0.359      -0.113
-x77            0.5198      0.039     13.409      0.000       0.444       0.596
-x78            0.0570      0.057      1.005      0.315      -0.054       0.168
-x79           -0.3138      0.080     -3.929      0.000      -0.470      -0.157
-x80           -0.0612      0.046     -1.318      0.187      -0.152       0.030
-x81            0.3565      0.144      2.474      0.013       0.074       0.639
-x82           -0.2710      0.164     -1.652      0.099      -0.592       0.051
-x83            0.4549      0.088      5.167      0.000       0.282       0.627
-x84            0.2410      0.091      2.642      0.008       0.062       0.420
-x85           -0.3781      0.077     -4.885      0.000      -0.530      -0.226
-x86           -0.2221      0.046     -4.806      0.000      -0.313      -0.131
-x87           -0.2128      0.029     -7.356      0.000      -0.269      -0.156
-x88           -0.0262      0.118     -0.222      0.825      -0.258       0.205
-x89           -0.2189      0.077     -2.829      0.005      -0.371      -0.067
-x90            0.0768      0.046      1.653      0.098      -0.014       0.168
-x91           -0.0436      0.256     -0.170      0.865      -0.546       0.459
-x92           -0.0317      0.104     -0.303      0.762      -0.236       0.173
-x93           -0.2539      0.056     -4.514      0.000      -0.364      -0.144
-x94           -0.4120      0.026    -15.862      0.000      -0.463      -0.361
-x95            0.3856      0.038     10.085      0.000       0.311       0.461
-x96            0.8325      0.048     17.507      0.000       0.739       0.926
-x97           -0.4354      0.083     -5.227      0.000      -0.599      -0.272
-x98            0.6849      0.028     24.118      0.000       0.629       0.741
-x99            0.2480      0.094      2.651      0.008       0.065       0.431
-x100          -0.1946      0.110     -1.773      0.076      -0.410       0.020
-x101           0.3972      0.161      2.472      0.013       0.082       0.712
-x102           0.0166      0.052      0.317      0.751      -0.086       0.119
-x103           0.1441      0.112      1.287      0.198      -0.075       0.363
-x104          -0.2072      0.030     -7.002      0.000      -0.265      -0.149
-x105          -0.2145      0.111     -1.931      0.053      -0.432       0.003
-x106           0.0085      0.193      0.044      0.965      -0.370       0.387
-x107          -0.1130      0.035     -3.269      0.001      -0.181      -0.045
-x108          -0.1397      0.073     -1.913      0.056      -0.283       0.003
-x109           0.8233      0.036     23.190      0.000       0.754       0.893
-x110           0.1524      0.068      2.247      0.025       0.019       0.285
-x111          -0.1137      0.066     -1.725      0.085      -0.243       0.015
-x112          -0.1190      0.038     -3.107      0.002      -0.194      -0.044
-x113           0.3669      0.121      3.036      0.002       0.130       0.604
-x114          -0.0043      0.074     -0.058      0.954      -0.149       0.140
-x115           0.1995      0.091      2.196      0.028       0.021       0.378
-x116           0.1063      0.044      2.432      0.015       0.021       0.192
-==============================================================================
-Omnibus:                    98894.623   Durbin-Watson:                   0.045
-Prob(Omnibus):                  0.000   Jarque-Bera (JB):           453043.775
-Skew:                           0.081   Prob(JB):                         0.00
-Kurtosis:                       5.620   Cond. No.                     1.69e+16
-==============================================================================
-
-Warnings:
-[1] Standard Errors are robust tocluster correlation (cluster)
-[2] The smallest eigenvalue is 1.22e-23. This might indicate that there are
-strong multicollinearity problems or that the design matrix is singular.
+<pre>                   Results: Ordinary least squares
+=====================================================================
+Model:              OLS              Adj. R-squared:     0.623       
+Dependent Variable: price_re         AIC:                1654394.2363
+Date:               2019-04-04 15:32 BIC:                1655817.7130
+No. Observations:   1577499          Log-Likelihood:     -8.2708e+05 
+Df Model:           115              F-statistic:        1.283e+05   
+Df Residuals:       1577383          Prob (F-statistic): 0.00        
+R-squared:          0.623            Scale:              0.16709     
+------------------------------------------------------------------------
+          Coef.     Std.Err.       z        P&gt;|z|      [0.025     0.975]
+------------------------------------------------------------------------
+alpha     4.7307      0.0094    505.5557    0.0000     4.7124     4.7490
+beta     -0.0008      0.0001     -7.4007    0.0000    -0.0011    -0.0006
+=====================================================================
+* The condition number is large (2e+16). This might indicate
+strong multicollinearity or other numerical problems.
 </pre>
 </div>
 </div>
@@ -16541,7 +16177,7 @@ strong multicollinearity problems or that the design matrix is singular.
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>As shown in the table above, the 95% confidence interval for $\beta$ in the full model is precisely estimated around the point estimate for $\beta$ of <strong>-0.08%</strong>.</p>
+<p>As shown in the table above, the 95% confidence interval for $\beta$ in the full model is <strong>(-0.0011, -0.0006)</strong>.</p>
 <p>This implies that if the full model — with controls for home size, location, and time trends — were representative of the real association between listing prices and reviews on Airbnb, we could be highly confident that we had a precise estimate of the underlying parameter $\beta$.</p>
 <h3 id="7.8.--Association-between-listing-price-and-being-reviewed">7.8.  Association between listing price and being reviewed<a class="anchor-link" href="#7.8.--Association-between-listing-price-and-being-reviewed">&#182;</a></h3><p>For this final section of the analysis, I investigate the association between prices and having either 0 reviews or 1 or more reviews. In order to do this, I engineer the indicator feature <code>reviewed</code> which takes value 0 for listings without any reviews, and the value 1 for listing with 1 or more reviews.</p>
 
