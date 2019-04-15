@@ -11933,10 +11933,8 @@ div#notebook {
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Specify paths to data and filenames</span>
-<span class="n">path_bos</span><span class="p">,</span> <span class="n">path_sea</span> <span class="o">=</span> <span class="s1">&#39;data/boston/&#39;</span><span class="p">,</span> <span class="s1">&#39;data/seattle/&#39;</span>
+<span class="n">cities</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Boston&#39;</span><span class="p">,</span> <span class="s1">&#39;Seattle&#39;</span><span class="p">]</span>
 <span class="n">filenames</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;calendar&#39;</span><span class="p">,</span> <span class="s1">&#39;listings&#39;</span><span class="p">,</span> <span class="s1">&#39;reviews&#39;</span><span class="p">]</span>
-<span class="c1"># Instantiate dictionaries to store data </span>
-<span class="n">data</span><span class="p">,</span> <span class="n">boston</span><span class="p">,</span> <span class="n">seattle</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(),</span> <span class="nb">dict</span><span class="p">(),</span> <span class="nb">dict</span><span class="p">()</span>
 </pre></div>
 
 </div>
@@ -11950,13 +11948,15 @@ div#notebook {
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Read csv files and store in hierarchical dictionary</span>
-<span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">filenames</span><span class="p">:</span>
-    <span class="c1"># Boston data</span>
-    <span class="n">boston</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path_bos</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s1">&#39;.csv&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">quotechar</span><span class="o">=</span><span class="s1">&#39;&quot;&#39;</span><span class="p">)</span>
-    <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Boston&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">boston</span>
-    <span class="c1"># Seattle data</span>
-    <span class="n">seattle</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path_sea</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s1">&#39;.csv&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">quotechar</span><span class="o">=</span><span class="s1">&#39;&quot;&#39;</span><span class="p">)</span>
-    <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Seattle&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">seattle</span>
+<span class="n">data</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="c1"># Loop over cities</span>
+<span class="k">for</span> <span class="n">city</span> <span class="ow">in</span> <span class="n">cities</span><span class="p">:</span>
+    <span class="n">data</span><span class="p">[</span><span class="n">city</span><span class="p">]</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+    <span class="c1"># Loop over files</span>
+    <span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="n">filenames</span><span class="p">:</span>
+        <span class="c1"># Read csv into dictionary</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;data/&#39;</span> <span class="o">+</span> <span class="n">city</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">filename</span> <span class="o">+</span> <span class="s1">&#39;.csv&#39;</span>
+        <span class="n">data</span><span class="p">[</span><span class="n">city</span><span class="p">][</span><span class="n">filename</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">quotechar</span><span class="o">=</span><span class="s1">&#39;&quot;&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12888,7 +12888,7 @@ height=343
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[86]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Call function &#39;missing_by_column()&#39;</span>
@@ -13517,7 +13517,7 @@ height=273
     <tr>
       <th>top</th>
       <td>NaN</td>
-      <td>2016-10-29</td>
+      <td>2017-04-01</td>
       <td>f</td>
       <td>$150.00</td>
     </tr>
@@ -13645,12 +13645,12 @@ height=273
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Sample of &#34;price&#34; data in Boston:
-[&#39;$65.00&#39; &#39;$149.00&#39; &#39;$35.00&#39; &#39;$176.00&#39; &#39;$239.00&#39; &#39;$119.00&#39; &#39;$70.00&#39;
- &#39;$86.00&#39; &#39;$145.00&#39; &#39;$120.00&#39;] 
+[&#39;$58.00&#39; &#39;$299.00&#39; &#39;$109.00&#39; &#39;$86.00&#39; &#39;$434.00&#39; &#39;$700.00&#39; &#39;$80.00&#39;
+ &#39;$225.00&#39; &#39;$65.00&#39; &#39;$245.00&#39;] 
 
 Sample of &#34;price&#34; data in Seattle:
-[&#39;$101.00&#39; &#39;$125.00&#39; &#39;$90.00&#39; &#39;$79.00&#39; &#39;$104.00&#39; &#39;$51.00&#39; &#39;$85.00&#39;
- &#39;$45.00&#39; &#39;$95.00&#39; &#39;$110.00&#39;] 
+[&#39;$299.00&#39; &#39;$100.00&#39; &#39;$99.00&#39; &#39;$59.00&#39; &#39;$65.00&#39; &#39;$54.00&#39; &#39;$119.00&#39;
+ &#39;$28.00&#39; &#39;$65.00&#39; &#39;$176.00&#39;] 
 
 </pre>
 </div>
@@ -13843,12 +13843,12 @@ Unique values of &#34;available&#34; in Seattle:
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Sample of &#34;date&#34; feature in Boston:
-[&#39;2016-10-01&#39; &#39;2017-07-27&#39; &#39;2017-03-12&#39; &#39;2017-05-08&#39; &#39;2017-08-20&#39;
- &#39;2017-05-20&#39; &#39;2017-06-29&#39; &#39;2017-07-14&#39; &#39;2017-05-21&#39; &#39;2017-02-02&#39;] 
+[&#39;2017-03-26&#39; &#39;2016-09-22&#39; &#39;2017-04-25&#39; &#39;2017-03-03&#39; &#39;2017-02-17&#39;
+ &#39;2017-03-11&#39; &#39;2016-09-18&#39; &#39;2017-08-12&#39; &#39;2017-06-09&#39; &#39;2016-11-06&#39;] 
 
 Sample of &#34;date&#34; feature in Seattle:
-[&#39;2016-03-05&#39; &#39;2016-06-14&#39; &#39;2016-08-31&#39; &#39;2016-11-12&#39; &#39;2016-06-16&#39;
- &#39;2016-08-19&#39; &#39;2016-07-16&#39; &#39;2016-09-17&#39; &#39;2016-05-27&#39; &#39;2016-10-19&#39;] 
+[&#39;2016-12-26&#39; &#39;2016-12-03&#39; &#39;2016-10-31&#39; &#39;2016-09-08&#39; &#39;2016-10-16&#39;
+ &#39;2016-01-29&#39; &#39;2016-01-08&#39; &#39;2016-07-18&#39; &#39;2016-11-18&#39; &#39;2016-11-21&#39;] 
 
 </pre>
 </div>
@@ -14056,7 +14056,7 @@ Sample of &#34;date&#34; feature in Seattle:
     <tr>
       <th>top</th>
       <td>NaN</td>
-      <td>2016-10-29</td>
+      <td>2017-04-01</td>
       <td>f</td>
       <td>$150.00</td>
       <td>NaN</td>
@@ -14263,7 +14263,7 @@ Sample of &#34;date&#34; feature in Seattle:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[40]:</div>
+<div class="prompt input_prompt">In&nbsp;[49]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Call function &#39;describe_columns()&#39;</span>
@@ -14489,14 +14489,14 @@ Sample of &#34;date&#34; feature in Seattle:
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="4.3.--Add-count-of-reviews-to-calendar">4.3.  Add count of reviews to <code>calendar</code><a class="anchor-link" href="#4.3.--Add-count-of-reviews-to-calendar">&#182;</a></h3><p>Before jumping into the analyses below, we need to determine whether the quantity of reviews for the listings in the <code>calendar</code> datasets is (1) a constant number or (2) a variable that changes across the time dimension of the panel data.</p>
-<p>In order to know this I will look into the dates of last recorded review in both <code>reviews</code> datasets; and I will compare these dates with the dates of first recorded prices in the <code>calendar</code> datasets.</p>
-
+<p>Statistics concerning reviews per listing are recorded in two of the datasets: <code>listings</code> and <code>reviews</code>. In <code>listings</code>, reviews are recorded as a constant number per listing, since this dataset is cross-sectional (i.e., it doesn't incorporate a time dimension). In <code>reviews</code>, on the other hand, reviews are recorded across time; so I will look into the dates of last recorded review in the <code>reviews</code> datasets and I will compare these dates with the dates of first recorded prices in the <code>calendar</code> datasets. If these date overlap, then it is possible that we could have a measurement for guest reviews over time in the <code>calendar</code> dataset.</p>
+<h4 id="4.3.1.--Count-of-reviews-in-the-reviews-datasets">4.3.1.  Count of reviews in the <code>reviews</code> datasets<a class="anchor-link" href="#4.3.1.--Count-of-reviews-in-the-reviews-datasets">&#182;</a></h4>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[41]:</div>
+<div class="prompt input_prompt">In&nbsp;[50]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Print the date of last review in &#39;reviews&#39;</span>
@@ -14533,7 +14533,7 @@ Seattle:  2016-01-03 00:00:00
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[42]:</div>
+<div class="prompt input_prompt">In&nbsp;[51]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Print the date of first listing in &#39;calendar&#39;</span>
@@ -14579,7 +14579,7 @@ Seattle:  2016-01-04 00:00:00
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[43]:</div>
+<div class="prompt input_prompt">In&nbsp;[52]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Create a cumulative sum of reviews received by listing </span>
@@ -14597,7 +14597,7 @@ Seattle:  2016-01-04 00:00:00
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[44]:</div>
+<div class="prompt input_prompt">In&nbsp;[53]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Create vector of total reviews by listing</span>
@@ -14611,12 +14611,21 @@ Seattle:  2016-01-04 00:00:00
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Below I use the data in the <code>reviews</code> datasets to add the column 'total_reviews' to the <code>calendar</code> datasets.</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[45]:</div>
+<div class="prompt input_prompt">In&nbsp;[54]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Create &#39;total_reviews&#39;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Add column for &#39;total_reviews&#39; to the calendar datasets</span>
 <span class="n">eng_feat</span> <span class="o">=</span> <span class="s1">&#39;total_reviews&#39;</span>
 <span class="c1"># Loop over cities and create &#39;total_reviews&#39;</span>
 <span class="k">for</span> <span class="n">city</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
@@ -14629,6 +14638,168 @@ Seattle:  2016-01-04 00:00:00
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="4.3.2.--Count-of-reviews-in-the-listings-datasets">4.3.2.  Count of reviews in the <code>listings</code> datasets<a class="anchor-link" href="#4.3.2.--Count-of-reviews-in-the-listings-datasets">&#182;</a></h4><p>As noted above,the <code>listings</code> datasets also include data concerning reviews per listing.</p>
+<p>First I will investigate whether these features have issues with missing data.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[55]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Print title</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Percentage of missing values in columns&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;associated with reviews.&#39;</span><span class="p">)</span>
+<span class="c1"># Loop over cities</span>
+<span class="k">for</span> <span class="n">city</span> <span class="ow">in</span> <span class="n">cities</span><span class="p">:</span>
+    <span class="c1"># Calculate percent missing values per column</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">city</span><span class="p">][</span><span class="s1">&#39;listings&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">like</span><span class="o">=</span><span class="s1">&#39;review&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">pc</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">100</span>
+    <span class="c1"># Sort, format, and print series of percentages</span>
+    <span class="n">sorted_pc</span> <span class="o">=</span> <span class="n">pc</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+                    <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s1">&#39;</span><span class="si">{:2.1f}</span><span class="s1">%&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="si">{:^25}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;— &#39;</span> <span class="o">+</span> <span class="n">city</span> <span class="o">+</span> <span class="s1">&#39; —&#39;</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">sorted_pc</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Percentage of missing values in columns
+associated with reviews.
+
+       — Boston —        
+review_scores_accuracy         23.0%
+review_scores_location         22.9%
+review_scores_value            22.9%
+review_scores_checkin          22.9%
+review_scores_communication    22.8%
+review_scores_cleanliness      22.8%
+review_scores_rating           22.7%
+reviews_per_month              21.1%
+last_review                    21.1%
+first_review                   21.1%
+number_of_reviews               0.0%
+dtype: object
+
+       — Seattle —       
+review_scores_checkin          17.2%
+review_scores_accuracy         17.2%
+review_scores_value            17.2%
+review_scores_location         17.2%
+review_scores_cleanliness      17.1%
+review_scores_communication    17.1%
+review_scores_rating           16.9%
+reviews_per_month              16.4%
+last_review                    16.4%
+first_review                   16.4%
+number_of_reviews               0.0%
+dtype: object
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Most of the columns with data about reviews have around 20% missing values, with the single exception of total reviews (<code>number_of_reviews</code>). I will keep this column and add the data to the <code>calendar</code> datasets.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[56]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Add column for &#39;number_of_reviews&#39; to the calendar datasets</span>
+<span class="k">for</span> <span class="n">city</span> <span class="ow">in</span> <span class="n">cities</span><span class="p">:</span>
+    <span class="n">data</span><span class="p">[</span><span class="n">city</span><span class="p">][</span><span class="s1">&#39;calendar&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">city</span><span class="p">][</span><span class="s1">&#39;calendar&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span>
+                                <span class="n">data</span><span class="p">[</span><span class="n">city</span><span class="p">][</span><span class="s1">&#39;listings&#39;</span><span class="p">][[</span><span class="s1">&#39;number_of_reviews&#39;</span><span class="p">]],</span>
+                                <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="s1">&#39;listing_id&#39;</span><span class="p">,</span> 
+                                <span class="n">right_on</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="n">city</span><span class="p">][</span><span class="s1">&#39;listings&#39;</span><span class="p">][</span><span class="s1">&#39;id&#39;</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="4.3.3.-total_reviews-vs.-number_of_reviews">4.3.3. <code>total_reviews</code> vs. <code>number_of_reviews</code><a class="anchor-link" href="#4.3.3.-total_reviews-vs.-number_of_reviews">&#182;</a></h4><p>The data in <code>total_reviews</code> comes from the <code>reviews</code> datasets while <code>number_of_reviews</code> comes from the <code>listings</code> datasets; here I assess whether these two sources provide the same information:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[81]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">temp</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">city</span><span class="p">][</span><span class="s1">&#39;calendar&#39;</span><span class="p">][</span><span class="s1">&#39;number_of_reviews&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span>
+        <span class="n">data</span><span class="p">[</span><span class="n">city</span><span class="p">][</span><span class="s1">&#39;calendar&#39;</span><span class="p">][</span><span class="s1">&#39;total_reviews&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Does &#39;number_of_reviews&#39; and &#39;total_reviews&#39; contain the same data?&quot;</span><span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;- Answer: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">temp</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Does &#39;number_of_reviews&#39; and &#39;total_reviews&#39; contain the same data?
+- Answer: True
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The test above confirms that both columns contain the same data measuring the review count per listing.</p>
+
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>

@@ -113,7 +113,7 @@ def hist_miss_by_cols(data, data_name):
                 fontweight='bold')
     plt.show()
 ##
-def missing_by_column(data, data_name, n_features):
+def missing_by_column(data, data_name, n_features=None):
     """
     Prints the percentage of missing values per column for a given dataset 
     type and both cities, in descending order of percentage missing.  
@@ -133,6 +133,8 @@ def missing_by_column(data, data_name, n_features):
         # Calculate percent missing values per column
         df = values[data_name]
         pc = df.isnull().sum() / df.shape[0] * 100
+        if n_features == None:
+            n_features = len(pc)
         # Sort, format, and print series of percentages
         sorted_pc = pc.sort_values(ascending=False).apply(
                         lambda x: '{:2.1f}%'.format(x))
