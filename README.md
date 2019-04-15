@@ -1,5 +1,5 @@
 # Write A Data Science Blog Post
-## Data Scientist Nanodegree Program - Term 2 - Project 1
+## Data Scientist Nanodegree Program - Term 2: Project 1
 
 ## Motivation 
 
