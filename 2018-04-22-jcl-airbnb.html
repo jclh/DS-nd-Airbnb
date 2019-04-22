@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>2018-04-04-jcl-final-analysis</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>2018-04-22-jcl-airbnb</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -11791,7 +11791,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[82]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Import libraries necessary for this project</span>
@@ -11814,7 +11814,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[83]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Print Python version for future reference</span>
@@ -11847,7 +11847,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[84]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Import utility functions from utility_fs.py</span>
@@ -11870,7 +11870,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[85]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># IPython magic commands</span>
@@ -11887,10 +11887,29 @@ div#notebook {
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>The autoreload extension is already loaded. To reload it, use:
+  %reload_ext autoreload
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[86]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Set plots aesthetic parameters in one step.</span>
@@ -11929,7 +11948,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[87]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Specify paths to data and filenames</span>
@@ -11944,7 +11963,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[88]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Read csv files and store in hierarchical dictionary</span>
@@ -11995,7 +12014,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[89]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Call &#39;print_data()&#39; for Boston</span>
@@ -12242,7 +12261,7 @@ listings.csv -     3,585 x 95
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[90]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Call &#39;print_data()&#39; for Seattle</span>
@@ -12519,7 +12538,7 @@ listings.csv -     3,818 x 92
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[91]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Print title </span>
@@ -12589,7 +12608,7 @@ reviews.csv: 0.00%
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[92]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Call function &#39;hist_miss_by_cols()&#39;</span>
@@ -12645,7 +12664,7 @@ height=713
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[93]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Call function &#39;hist_miss_by_cols()&#39;</span>
@@ -12693,7 +12712,7 @@ height=343
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[94]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Call function &#39;missing_by_column()&#39;</span>
@@ -12750,7 +12769,7 @@ dtype: object
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[95]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Print title</span>
@@ -12816,7 +12835,7 @@ Seattle  100%
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[96]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Create a dictionary to track unproblematic features </span>
@@ -12840,7 +12859,7 @@ Seattle  100%
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[97]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Call function &#39;hist_miss_by_cols()&#39;</span>
@@ -12888,7 +12907,7 @@ height=343
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[98]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Call function &#39;missing_by_column()&#39;</span>
@@ -12978,7 +12997,7 @@ dtype: object
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[99]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Features to drop due to missing data</span>
@@ -13002,7 +13021,7 @@ dtype: object
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[100]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Get list of all original features in &#39;listings.csv&#39;</span>
@@ -13028,7 +13047,7 @@ dtype: object
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="prompt input_prompt">In&nbsp;[101]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Call function &#39;missing_by_column()&#39;</span>
@@ -13088,7 +13107,7 @@ dtype: object
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="prompt input_prompt">In&nbsp;[102]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">keep_features</span><span class="p">[</span><span class="s1">&#39;reviews&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Boston&#39;</span><span class="p">][</span><span class="s1">&#39;reviews&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
@@ -13116,7 +13135,7 @@ dtype: object
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="prompt input_prompt">In&nbsp;[103]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Call function &#39;count_rows_missing()&#39;</span>
@@ -13169,7 +13188,7 @@ height=273
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="prompt input_prompt">In&nbsp;[104]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Call function &#39;count_rows_missing()&#39;</span>
@@ -13231,7 +13250,7 @@ height=273
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="prompt input_prompt">In&nbsp;[105]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Call function &#39;count_rows_missing()&#39;</span>
@@ -13320,7 +13339,7 @@ height=327
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="prompt input_prompt">In&nbsp;[106]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Call function &#39;count_rows_missing()&#39;</span>
@@ -13373,7 +13392,7 @@ height=273
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="prompt input_prompt">In&nbsp;[107]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Call function &#39;count_rows_missing()&#39;</span>
@@ -13446,7 +13465,7 @@ height=273
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="prompt input_prompt">In&nbsp;[108]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Call function &#39;describe_columns()&#39;</span>
@@ -13517,7 +13536,7 @@ height=273
     <tr>
       <th>top</th>
       <td>NaN</td>
-      <td>2017-04-01</td>
+      <td>2017-04-09</td>
       <td>f</td>
       <td>$150.00</td>
     </tr>
@@ -13621,7 +13640,7 @@ height=273
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="prompt input_prompt">In&nbsp;[109]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Sample some values in the &#39;price&#39; feature</span>
@@ -13645,12 +13664,12 @@ height=273
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Sample of &#34;price&#34; data in Boston:
-[&#39;$58.00&#39; &#39;$299.00&#39; &#39;$109.00&#39; &#39;$86.00&#39; &#39;$434.00&#39; &#39;$700.00&#39; &#39;$80.00&#39;
- &#39;$225.00&#39; &#39;$65.00&#39; &#39;$245.00&#39;] 
+[&#39;$175.00&#39; &#39;$600.00&#39; &#39;$100.00&#39; &#39;$265.00&#39; &#39;$600.00&#39; &#39;$300.00&#39; &#39;$399.00&#39;
+ &#39;$900.00&#39; &#39;$125.00&#39; &#39;$40.00&#39;] 
 
 Sample of &#34;price&#34; data in Seattle:
-[&#39;$299.00&#39; &#39;$100.00&#39; &#39;$99.00&#39; &#39;$59.00&#39; &#39;$65.00&#39; &#39;$54.00&#39; &#39;$119.00&#39;
- &#39;$28.00&#39; &#39;$65.00&#39; &#39;$176.00&#39;] 
+[&#39;$65.00&#39; &#39;$109.00&#39; &#39;$69.00&#39; &#39;$250.00&#39; &#39;$225.00&#39; &#39;$119.00&#39; &#39;$75.00&#39;
+ &#39;$99.00&#39; &#39;$125.00&#39; &#39;$95.00&#39;] 
 
 </pre>
 </div>
@@ -13662,7 +13681,7 @@ Sample of &#34;price&#34; data in Seattle:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="prompt input_prompt">In&nbsp;[110]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Function: transform price column</span>
@@ -13709,7 +13728,7 @@ Output:  7163.0
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="prompt input_prompt">In&nbsp;[111]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Re-encode &#39;price&#39;</span>
@@ -13744,7 +13763,7 @@ Output:  7163.0
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="prompt input_prompt">In&nbsp;[112]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Unique values of &#39;available&#39;</span>
@@ -13792,7 +13811,7 @@ Unique values of &#34;available&#34; in Seattle:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[32]:</div>
+<div class="prompt input_prompt">In&nbsp;[113]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Re-encode &#39;available&#39;</span>
@@ -13819,7 +13838,7 @@ Unique values of &#34;available&#34; in Seattle:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[33]:</div>
+<div class="prompt input_prompt">In&nbsp;[114]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Sample some values in the &#39;date&#39; feature</span>
@@ -13843,12 +13862,12 @@ Unique values of &#34;available&#34; in Seattle:
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Sample of &#34;date&#34; feature in Boston:
-[&#39;2017-03-26&#39; &#39;2016-09-22&#39; &#39;2017-04-25&#39; &#39;2017-03-03&#39; &#39;2017-02-17&#39;
- &#39;2017-03-11&#39; &#39;2016-09-18&#39; &#39;2017-08-12&#39; &#39;2017-06-09&#39; &#39;2016-11-06&#39;] 
+[&#39;2017-03-01&#39; &#39;2017-03-21&#39; &#39;2017-04-25&#39; &#39;2016-09-14&#39; &#39;2017-07-03&#39;
+ &#39;2017-08-27&#39; &#39;2016-11-17&#39; &#39;2017-07-21&#39; &#39;2016-10-01&#39; &#39;2016-09-25&#39;] 
 
 Sample of &#34;date&#34; feature in Seattle:
-[&#39;2016-12-26&#39; &#39;2016-12-03&#39; &#39;2016-10-31&#39; &#39;2016-09-08&#39; &#39;2016-10-16&#39;
- &#39;2016-01-29&#39; &#39;2016-01-08&#39; &#39;2016-07-18&#39; &#39;2016-11-18&#39; &#39;2016-11-21&#39;] 
+[&#39;2016-09-27&#39; &#39;2016-12-31&#39; &#39;2016-11-01&#39; &#39;2016-01-10&#39; &#39;2016-05-18&#39;
+ &#39;2016-12-22&#39; &#39;2016-12-08&#39; &#39;2016-03-05&#39; &#39;2016-12-21&#39; &#39;2016-12-20&#39;] 
 
 </pre>
 </div>
@@ -13869,7 +13888,7 @@ Sample of &#34;date&#34; feature in Seattle:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[34]:</div>
+<div class="prompt input_prompt">In&nbsp;[115]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Re-encode &#39;date&#39;</span>
@@ -13902,7 +13921,7 @@ Sample of &#34;date&#34; feature in Seattle:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[35]:</div>
+<div class="prompt input_prompt">In&nbsp;[116]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Create &#39;day_of_week&#39;</span>
@@ -13922,7 +13941,7 @@ Sample of &#34;date&#34; feature in Seattle:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[36]:</div>
+<div class="prompt input_prompt">In&nbsp;[117]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Create &#39;day_of_year&#39; : 1, 2, ..., 366</span>
@@ -13941,7 +13960,7 @@ Sample of &#34;date&#34; feature in Seattle:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[37]:</div>
+<div class="prompt input_prompt">In&nbsp;[118]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Create &#39;day_of_sample&#39; : 0, 1, ..., 365</span>
@@ -13961,7 +13980,7 @@ Sample of &#34;date&#34; feature in Seattle:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[38]:</div>
+<div class="prompt input_prompt">In&nbsp;[119]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Call function &#39;describe_columns()&#39;</span>
@@ -14056,7 +14075,7 @@ Sample of &#34;date&#34; feature in Seattle:
     <tr>
       <th>top</th>
       <td>NaN</td>
-      <td>2017-04-01</td>
+      <td>2017-04-09</td>
       <td>f</td>
       <td>$150.00</td>
       <td>NaN</td>
@@ -14244,7 +14263,7 @@ Sample of &#34;date&#34; feature in Seattle:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[39]:</div>
+<div class="prompt input_prompt">In&nbsp;[120]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Re-encode &#39;date&#39;</span>
@@ -14263,7 +14282,7 @@ Sample of &#34;date&#34; feature in Seattle:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[49]:</div>
+<div class="prompt input_prompt">In&nbsp;[121]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Call function &#39;describe_columns()&#39;</span>
@@ -14496,7 +14515,7 @@ Sample of &#34;date&#34; feature in Seattle:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[50]:</div>
+<div class="prompt input_prompt">In&nbsp;[122]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Print the date of last review in &#39;reviews&#39;</span>
@@ -14533,7 +14552,7 @@ Seattle:  2016-01-03 00:00:00
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[51]:</div>
+<div class="prompt input_prompt">In&nbsp;[123]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Print the date of first listing in &#39;calendar&#39;</span>
@@ -14579,7 +14598,7 @@ Seattle:  2016-01-04 00:00:00
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[52]:</div>
+<div class="prompt input_prompt">In&nbsp;[124]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Create a cumulative sum of reviews received by listing </span>
@@ -14597,7 +14616,7 @@ Seattle:  2016-01-04 00:00:00
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[53]:</div>
+<div class="prompt input_prompt">In&nbsp;[125]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Create vector of total reviews by listing</span>
@@ -14622,7 +14641,7 @@ Seattle:  2016-01-04 00:00:00
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[54]:</div>
+<div class="prompt input_prompt">In&nbsp;[126]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Add column for &#39;total_reviews&#39; to the calendar datasets</span>
@@ -14651,7 +14670,7 @@ Seattle:  2016-01-04 00:00:00
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[55]:</div>
+<div class="prompt input_prompt">In&nbsp;[127]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Print title</span>
@@ -14732,7 +14751,7 @@ dtype: object
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[56]:</div>
+<div class="prompt input_prompt">In&nbsp;[128]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Add column for &#39;number_of_reviews&#39; to the calendar datasets</span>
@@ -14759,7 +14778,7 @@ dtype: object
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[81]:</div>
+<div class="prompt input_prompt">In&nbsp;[131]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">temp</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">city</span><span class="p">][</span><span class="s1">&#39;calendar&#39;</span><span class="p">][</span><span class="s1">&#39;number_of_reviews&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span>
@@ -14818,7 +14837,7 @@ dtype: object
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[46]:</div>
+<div class="prompt input_prompt">In&nbsp;[132]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Call function &#39;unique_listing_records()&#39;</span>
@@ -14865,7 +14884,7 @@ Seattle:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[47]:</div>
+<div class="prompt input_prompt">In&nbsp;[133]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Loop over cities and drop duplicates in &#39;calendar&#39;</span>
@@ -14919,7 +14938,7 @@ Seattle:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[48]:</div>
+<div class="prompt input_prompt">In&nbsp;[134]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Call function &#39;countplot_availability()&#39;</span>
@@ -14977,7 +14996,7 @@ Year goes from 2016-09-06 to 2017-09-05
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[49]:</div>
+<div class="prompt input_prompt">In&nbsp;[135]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Call function &#39;countplot_availability()&#39;</span>
@@ -15025,6 +15044,45 @@ Year goes from 2016-01-04 to 2017-01-02
 </div>
 
 </div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[136]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cut</span> <span class="o">=</span> <span class="mi">300</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Percent of homes with at least </span><span class="si">{}</span><span class="s1"> available nights in a year</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cut</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">city</span> <span class="ow">in</span> <span class="n">cities</span><span class="p">:</span>
+    <span class="n">nights_per_home</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">city</span><span class="p">][</span><span class="s1">&#39;calendar&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span>
+        <span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;listing_id&#39;</span><span class="p">])[</span><span class="s1">&#39;available_re&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>  
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:8}</span><span class="s1">: </span><span class="si">{:.0f}</span><span class="s1">%&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">city</span><span class="p">,</span> <span class="mi">100</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">nights_per_home</span> <span class="o">&gt;=</span> <span class="n">cut</span><span class="p">)))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Percent of homes with at least 300 available nights in a year
+
+Boston  : 34%
+Seattle : 52%
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -15062,7 +15120,7 @@ Year goes from 2016-01-04 to 2017-01-02
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[50]:</div>
+<div class="prompt input_prompt">In&nbsp;[137]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Call function &#39;time_series_means()&#39;</span>
@@ -15113,7 +15171,7 @@ height=396
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[51]:</div>
+<div class="prompt input_prompt">In&nbsp;[138]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Call function &#39;time_series_means()&#39;</span>
@@ -15163,7 +15221,7 @@ height=396
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[52]:</div>
+<div class="prompt input_prompt">In&nbsp;[139]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Call function &#39;time_series_means()&#39;</span>
@@ -15227,7 +15285,7 @@ height=396
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[53]:</div>
+<div class="prompt input_prompt">In&nbsp;[140]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Call function &#39;time_series_means()&#39;</span>
@@ -15274,7 +15332,7 @@ height=396
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[54]:</div>
+<div class="prompt input_prompt">In&nbsp;[141]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Call function &#39;time_series_means()&#39;</span>
@@ -15323,7 +15381,7 @@ height=396
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[55]:</div>
+<div class="prompt input_prompt">In&nbsp;[142]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Call function &#39;time_series_means()&#39;</span>
@@ -15378,7 +15436,7 @@ height=396
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[56]:</div>
+<div class="prompt input_prompt">In&nbsp;[143]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Select Boston calendar data for April</span>
@@ -15395,7 +15453,7 @@ height=396
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[57]:</div>
+<div class="prompt input_prompt">In&nbsp;[144]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Create figure and subplot  </span>
@@ -15459,7 +15517,7 @@ height=310
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[58]:</div>
+<div class="prompt input_prompt">In&nbsp;[145]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Print title</span>
@@ -15539,7 +15597,7 @@ Seattle:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[59]:</div>
+<div class="prompt input_prompt">In&nbsp;[146]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Create &#39;fri_sat&#39;</span>
@@ -15572,7 +15630,7 @@ Seattle:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[60]:</div>
+<div class="prompt input_prompt">In&nbsp;[147]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Call function weekend_prices()</span>
@@ -15629,15 +15687,15 @@ height=382
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The two figures above clearly show how the noise average price in Seattle can be smoothed out significantly by separating the data and making one plot of Friday-Saturdays price and another plot of average price for the rest of the week.</p>
-<p>The average Fri-Sat price remains approximately 5% higher than the average weekday price during the entire sample.</p>
+<p>The two figures above clearly show how the noisy average price in Seattle can be smoothed out significantly by separating the data and making one plot of Friday-Saturdays price and another plot of average price for the rest of the week.</p>
+<p>The average Fri-Sat price remains approximately 6% higher than the average weekday price during the entire sample.</p>
 <h4 id="6.2.2.--Weekend-prices-in-Boston">6.2.2.  Weekend prices in Boston<a class="anchor-link" href="#6.2.2.--Weekend-prices-in-Boston">&#182;</a></h4>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[61]:</div>
+<div class="prompt input_prompt">In&nbsp;[148]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Call function weekend_prices()</span>
@@ -15709,7 +15767,7 @@ height=382
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[62]:</div>
+<div class="prompt input_prompt">In&nbsp;[149]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Call countplot_reviews() </span>
@@ -15777,7 +15835,7 @@ height=340
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[63]:</div>
+<div class="prompt input_prompt">In&nbsp;[150]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Call countplot_reviews() with cutoff</span>
@@ -15836,7 +15894,7 @@ height=340
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[64]:</div>
+<div class="prompt input_prompt">In&nbsp;[151]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Call countplot_reviews() with cutoff</span>
@@ -15923,7 +15981,7 @@ price_{it} = f(total\_reviews_i) + g(home\_size_i, location_i) + h(time\_of\_yea
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[65]:</div>
+<div class="prompt input_prompt">In&nbsp;[152]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Instantiate dictionary </span>
@@ -15950,7 +16008,7 @@ price_{it} = f(total\_reviews_i) + g(home\_size_i, location_i) + h(time\_of\_yea
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[66]:</div>
+<div class="prompt input_prompt">In&nbsp;[153]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Transform dictionary into single dataframe incl. both cities</span>
@@ -15973,7 +16031,7 @@ price_{it} = f(total\_reviews_i) + g(home\_size_i, location_i) + h(time\_of\_yea
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[67]:</div>
+<div class="prompt input_prompt">In&nbsp;[154]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Check for missing values in the new dataframe</span>
@@ -15990,7 +16048,7 @@ price_{it} = f(total\_reviews_i) + g(home\_size_i, location_i) + h(time\_of\_yea
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[67]:</div>
+<div class="prompt output_prompt">Out[154]:</div>
 
 
 
@@ -16006,10 +16064,11 @@ date                            0
 available                       0
 available_re                    0
 date_re                         0
+day_of_sample                   0
 day_of_year                     0
 accommodates                    0
-day_of_sample                   0
 total_reviews                   0
+number_of_reviews               0
 fri_sat                         0
 id                              0
 neighbourhood_cleansed          0
@@ -16025,7 +16084,7 @@ dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[68]:</div>
+<div class="prompt input_prompt">In&nbsp;[155]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Drop rows with missing values for price</span>
@@ -16043,7 +16102,7 @@ dtype: int64</pre>
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[68]:</div>
+<div class="prompt output_prompt">Out[155]:</div>
 
 
 
@@ -16059,10 +16118,11 @@ price                        0
 price_re                     0
 available_re                 0
 date_re                      0
+day_of_sample                0
 day_of_year                  0
 accommodates                 0
-day_of_sample                0
 total_reviews                0
+number_of_reviews            0
 fri_sat                      0
 id                           0
 neighbourhood_cleansed       0
@@ -16088,7 +16148,7 @@ dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[81]:</div>
+<div class="prompt input_prompt">In&nbsp;[156]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Display first few rows of created dataframe</span>
@@ -16115,7 +16175,7 @@ log(price_{it}) = \alpha + \beta.total\_reviews_i
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[70]:</div>
+<div class="prompt input_prompt">In&nbsp;[157]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Call linear_model() and store fitted model</span>
@@ -16162,7 +16222,7 @@ log(price_{it}) = \alpha + \beta.total\_reviews_i + \gamma.f(max\_occupancy_i, n
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[71]:</div>
+<div class="prompt input_prompt">In&nbsp;[158]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Select numeric and categorical control variables</span>
@@ -16212,7 +16272,7 @@ log(price_{it}) = \alpha + \beta.total\_reviews_i + \gamma.f(max\_occupancy_i, n
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[72]:</div>
+<div class="prompt input_prompt">In&nbsp;[159]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Create non-linear time trends</span>
@@ -16227,7 +16287,7 @@ log(price_{it}) = \alpha + \beta.total\_reviews_i + \gamma.f(max\_occupancy_i, n
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[73]:</div>
+<div class="prompt input_prompt">In&nbsp;[160]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Select numeric and categorical control variables</span>
@@ -16275,7 +16335,7 @@ log(price_{it}) = \alpha + \beta.total\_reviews_i + \gamma.f(max\_occupancy_i, n
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[74]:</div>
+<div class="prompt input_prompt">In&nbsp;[161]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Pandas series to Numpy array</span>
@@ -16292,7 +16352,7 @@ log(price_{it}) = \alpha + \beta.total\_reviews_i + \gamma.f(max\_occupancy_i, n
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[171]:</div>
+<div class="prompt input_prompt">In&nbsp;[162]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Extract results summary from OLS fit</span>
@@ -16323,7 +16383,7 @@ log(price_{it}) = \alpha + \beta.total\_reviews_i + \gamma.f(max\_occupancy_i, n
 =====================================================================
 Model:              OLS              Adj. R-squared:     0.623       
 Dependent Variable: price_re         AIC:                1654394.2363
-Date:               2019-04-04 15:32 BIC:                1655817.7130
+Date:               2019-04-22 11:56 BIC:                1655817.7130
 No. Observations:   1577499          Log-Likelihood:     -8.2708e+05 
 Df Model:           115              F-statistic:        1.283e+05   
 Df Residuals:       1577383          Prob (F-statistic): 0.00        
@@ -16357,7 +16417,7 @@ strong multicollinearity or other numerical problems.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[76]:</div>
+<div class="prompt input_prompt">In&nbsp;[163]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Create new variable &#39;reviewed&#39;</span>
@@ -16385,7 +16445,7 @@ log(price_{it}) = \alpha + \beta.reviewed_i + \gamma.f(max\_occupancy_i, neighbo
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[77]:</div>
+<div class="prompt input_prompt">In&nbsp;[164]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Select numeric and categorical control variables</span>
