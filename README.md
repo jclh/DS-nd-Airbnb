@@ -1,6 +1,10 @@
 # Write A Data Science Blog Post
 ## Data Scientist Nanodegree Program - Term 2: Project 1
 
+## Blog post on Medium 
+
+[Airbnb in Boston and Seattle: Availability, Pricing, and Reviews](https://medium.com/@jcl/airbnb-in-boston-and-seattle-d2a6daf82b11)
+
 ## Motivation 
 
 The goal of this project is to begin building a data science portfolio by creating a blog post and Github repository.
