@@ -1,5 +1,5 @@
 # PROGRAMMER: JC Lopez  
-# REVISED DATE: 04/04/2019
+# REVISED DATE: 04/22/2019
 # PURPOSE: Utility functions for DS-Term-2 Project 1
 ##
 # Import python modules
