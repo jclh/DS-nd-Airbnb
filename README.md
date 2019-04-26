@@ -4,7 +4,7 @@
 
 ---
 
-## Example screen
+> Example screen
 
 ![](jupyter_screen.png)
 
