@@ -2,9 +2,11 @@
 
 > Analysis of Availability, Pricing, and Reviews
 
+## Example screen
+
 ![](jupyter_screen.png)
 
-## Motivation and Synopsis
+## Motivation and synopsis
 
 This project is an exercise in quantitative-business research using public Airbnb data for the cities of [Boston](https://www.kaggle.com/airbnb/boston) and [Seattle](https://www.kaggle.com/airbnb/seattle/data). 
 
