@@ -1,6 +1,8 @@
 # Airbnb in Boston and Seattle
 
-> Analysis of Availability, Pricing, and Reviews
+## Analysis of Availability, Pricing, and Reviews
+
+---
 
 ## Example screen
 
