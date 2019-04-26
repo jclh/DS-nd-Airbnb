@@ -1,51 +1,53 @@
-# Write A Data Science Blog Post
-## Data Scientist Nanodegree Program - Term 2: Project 1
+# Airbnb in Boston and Seattle
+
+> Analysis of Availability, Pricing, and Reviews
+
+![](jupyter_screen.png)
+
+## Motivation and Synopsis
+
+This project is an exercise in quantitative-business research using public Airbnb data for the cities of [Boston](https://www.kaggle.com/airbnb/boston) and [Seattle](https://www.kaggle.com/airbnb/seattle/data). 
+
+The main analysis in the project is an investigation of the following 3 questions:
+
+1. What is the temporal behavior of the average availability of Airbnb homes in each city? And how do they compare to each other?
+2. What is the seasonal behavior of average rates for Airbnb homes in these cities? Also, are average rates consistently higher on weekends?
+3. What is the association between nightly price/rate and the quantity of reviews received by a home on Airbnb?
 
 ## Blog post on Medium 
 
 [Airbnb in Boston and Seattle: Availability, Pricing, and Reviews](https://medium.com/@jcl/airbnb-in-boston-and-seattle-d2a6daf82b11)
 
-## Motivation 
+## Files in the repository
 
-The goal of this project is to begin building a data science portfolio by creating a blog post and Github repository.
+* `jcl-airbnb.ipynb`:  Jupyter notebook including main code for data cleaning, analysis, and modeling; as well as comments and discussion of results. 
+* `jcl-airbnb.html`:  `html` copy of the Jupyter notebook to be opened with any browser. 
+* `utility_fs.py`:  Python file including the custom-built functions required for the main analysis in the Jupyter notebook. 
+* `jupyter_screen.png`:  Example screen-shot of the Jupyter notebook.
 
-The high-level instructions are enumerated below:
-1. Come up with three questions you are interested in answering.
-2. Extract the necessary data to answer these questions.
-3. Perform necessary cleaning, analysis, and modeling.
-4. Evaluate your results.
-5. Create a Github repository to share your code and data wrangling/modeling techniques, with a technical audience in mind.
-6. Create a blog post to share your questions and insights with a non-technical audience.
+## Usage example for new users
 
-## Synopsis 
+The Jupyter Project highly recommends new users to install [Anaconda](https://www.anaconda.com/distribution/); since it conveniently installs Python, the Jupyter Notebook, and other commonly used packages for scientific computing and data science.
 
-This project is an exercise in quantitative-business research using public Airbnb data for the cities of [Boston](https://www.kaggle.com/airbnb/boston) and [Seattle](https://www.kaggle.com/airbnb/seattle/data). 
+Use the following installation steps:
 
-The main analysis in the project is an investigation of the following 3 questions:
-1. What is the temporal behavior of the average availability of Airbnb homes in each city? And how do they compare to each other?
-2. What is the seasonal behavior of average rates for Airbnb homes in these cities? Also, are average rates consistently higher on weekends?
-3. What is the association between nightly price/rate and the quantity of reviews received by a home on Airbnb?
+1. Download Anaconda.
 
-## Data for Boston and Seattle
+2. Install the version of Anaconda which you downloaded, following the instructions on the download page.
 
-The project relies on three analogous datasets for each city:
+3. To run the notebook:
 
-* **Listings**, including full descriptions and average review score 
-* **Reviews**, including unique id for each reviewer and detailed comments 
-* **Calendar**, including listing id and the price and availability for that day
-
-Six (6) csv files in total.
+```
+jupyter notebook jcl-airbnb.ipynb
+```
 
 ## Python version
+
 3.7.1 (default, Oct 23 2018, 14:07:42) 
 
-## Files in the repository
-* `2018-04-22-jcl-airbnb.ipynb`:  Jupyter notebook including main code for data cleaning, analysis, and modeling; as well as comments and discussion of results. 
-* `2018-04-22-jcl-airbnb.html`:  Jupyter notebook including main code for data cleaning, analysis, and modeling; as well as comments and discussion of results. 
-* `utility_fs.py`:  Python file including the custom-built functions required for the main analysis in the Jupyter notebook. 
-
 ## Python libraries
-The Jupyter Notebook file, `2018-04-22-jcl-airbnb.ipynb`,  requires the following Python libraries:
+
+The Jupyter Notebook file, `jcl-airbnb.ipynb`,  requires the following Python libraries:
 - sys
 - numpy
 - pandas
@@ -65,7 +67,18 @@ The utility functions in `utility_fs.py` require the following Python libraries:
 - sklearn
 - statsmodel.api
 
+## Data for Boston and Seattle
+
+The project relies on three analogous datasets for each city:
+
+* **Listings**, including full descriptions and average review score 
+* **Reviews**, including unique id for each reviewer and detailed comments 
+* **Calendar**, including listing id and the price and availability for that day
+
+Six (6) `csv` files in total.
+
 ## Summary of results
+
 Below is a brief synopsis of the results of the analysis, addressing each of the business questions described at the beginning of this document.
 
 ### 1)  Temporal behavior of average availability 
@@ -100,5 +113,22 @@ Once again, these are counterintuitive findings to me, if one believes that bein
 Finally, an alternative explanation would be that there are selection bias problems in the sample with respect to guest reviews. If there is some underlying mechanism by which the reviewed listings are systematically different from the listings with zero reviews, then the average difference in price would be impossible to predict without a conceptual understanding of said systematic differences.
 
 ## Acknowledgments
+
 * [Josh Bernhard](https://medium.com/@josh_2774), [Robert Chang](https://medium.com/@rchang) for inspiration and examples.
 * [Airbnb Open Data](https://www.kaggle.com/airbnb)
+* Jupyter Documentation: [Installing Jupyter Notebook](https://jupyter.readthedocs.io/en/latest/install.html)
+
+## Author
+
+Juan Carlos Lopez
+[GitHub](https://github.com/jclh/)
+[LinkedIn](https://www.linkedin.com/in/jclopezh/)
+jc.lopezh@gmail.com
+
+## Contributing
+
+1. Fork it (https://github.com/jclh/airbnb-boston-seattle/fork)
+2. Create your feature branch (git checkout -b feature/fooBar)
+3. Commit your changes (git commit -am 'Add some fooBar')
+4. Push to the branch (git push origin feature/fooBar)
+5. Create a new Pull Request
