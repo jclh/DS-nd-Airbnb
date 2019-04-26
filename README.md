@@ -2,8 +2,6 @@
 
 ## Analysis of Availability, Pricing, and Reviews
 
----
-
 > Example screen:
 
 ![](jupyter_screen.png)
