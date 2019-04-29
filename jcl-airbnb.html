@@ -11775,17 +11775,31 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Project-1:-Write-A-Data-Science-Blog-Post">Project 1: Write A Data Science Blog Post<a class="anchor-link" href="#Project-1:-Write-A-Data-Science-Blog-Post">&#182;</a></h1><h2 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">&#182;</a></h2><p>The goal of this project is to begin building a data science portfolio by creating a blog post and Github repository.</p>
-<p>The high-level instructions are enumerated below:</p>
+<h1 id="Analysis-of-Airbnb-in-Boston-and-Seattle">Analysis of Airbnb in Boston and Seattle<a class="anchor-link" href="#Analysis-of-Airbnb-in-Boston-and-Seattle">&#182;</a></h1><h2 id="Availability,-Pricing,-and-Reviews">Availability, Pricing, and Reviews<a class="anchor-link" href="#Availability,-Pricing,-and-Reviews">&#182;</a></h2><hr>
+<h2 id="1.-Motivation-and-Business-Questions">1. Motivation and Business Questions<a class="anchor-link" href="#1.-Motivation-and-Business-Questions">&#182;</a></h2><p>This project is an exercise in quantitative, business research using public Airbnb data for the cities of <a href="https://www.kaggle.com/airbnb/boston">Boston</a> and <a href="https://www.kaggle.com/airbnb/seattle/data">Seattle</a>.</p>
+<p>The main analysis in the project is an investigation of the following 3 questions:</p>
 <ol>
-<li>Come up with three questions you are interested in answering. </li>
-<li>Extract the necessary data to answer these questions.</li>
-<li>Perform necessary cleaning, analysis, and modeling.</li>
-<li>Evaluate your results.</li>
-<li>Create a Github repository to share your code and data wrangling/modeling techniques, with a technical audience in mind.</li>
-<li>Create a blog post to share your questions and insights with a non-technical audience. </li>
+<li>How does the average availability of Airbnb homes vary over time in each city? How does it compare between cities?</li>
+<li>Is there a clear seasonal pattern for the average nightly rate on Airbnb in Boston and Seattle? Is there a clear weekly pattern?</li>
+<li>Is there a clear association between a listing’s nightly rate and the number of guest reviews the home has received?</li>
 </ol>
-<h2 id="Section-0.--Import-Python-libraries">Section 0.  Import Python libraries<a class="anchor-link" href="#Section-0.--Import-Python-libraries">&#182;</a></h2>
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="2.-Understanding-the-Airbnb-data">2. Understanding the Airbnb data<a class="anchor-link" href="#2.-Understanding-the-Airbnb-data">&#182;</a></h2><p>The project relies on three analogous datasets for each city:</p>
+<ul>
+<li><code>listings.csv</code>: including full descriptions and average review score </li>
+<li><code>reviews.csv</code>: including unique id for each reviewer and detailed comments </li>
+<li><code>calendar.csv</code>: including listing id and the price and availability for that day</li>
+</ul>
+<p>Six (6) <code>csv</code> files in total.</p>
+<h3 id="2.1.-Import-Python-libraries">2.1. Import Python libraries<a class="anchor-link" href="#2.1.-Import-Python-libraries">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -11926,22 +11940,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Section-1.--Load-the-AirbnbAirBnB-data">Section 1.  Load the AirbnbAirBnB data<a class="anchor-link" href="#Section-1.--Load-the-AirbnbAirBnB-data">&#182;</a></h2><p>I chose to use the Airbnb homes data for this project.</p>
-<p>There are six <code>csv</code> files and two cities — Boston and Seattle — associated with the analysis; that is, three analogous files for each city:</p>
-<ul>
-<li><code>calendar.csv</code> </li>
-<li><code>listings.csv</code></li>
-<li><code>reviews.csv</code></li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>The data will be stored in a hierarchical dictionary with city — Boston, Seattle — as the first level and dataset type — calendar, listings, reviews — as the second level.</p>
+<h3 id="2.2.-Load-the-data">2.2. Load the data<a class="anchor-link" href="#2.2.-Load-the-data">&#182;</a></h3><p>The data will be stored in a hierarchical dictionary with city — Boston, Seattle — as the first level and dataset type — calendar, listings, reviews — as the second level.</p>
 
 </div>
 </div>
@@ -11996,7 +11995,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Section-2.--High-level-description-of-the-Airbnb-data">Section 2.  High-level description of the Airbnb data<a class="anchor-link" href="#Section-2.--High-level-description-of-the-Airbnb-data">&#182;</a></h2><p>This high-level inspection of the datasets involves two main objectives.</p>
+<h3 id="2.3.-High-level-description-of-datasets">2.3. High-level description of datasets<a class="anchor-link" href="#2.3.-High-level-description-of-datasets">&#182;</a></h3><p>This high-level inspection of the datasets involves two main objectives.</p>
 <ol>
 <li>Determine the size and shape of the datasets. </li>
 <li>Identify the major properties of the datatypes in each DataFrame by inspecting the first few rows of as many columns as possible.</li>
@@ -12008,7 +12007,7 @@ div#notebook {
 <li>First n rows of <code>listings.csv</code>.</li>
 <li>First n rows of <code>reviews.csv</code>.</li>
 </ol>
-<h3 id="2.1.--Boston-data">2.1.  Boston data<a class="anchor-link" href="#2.1.--Boston-data">&#182;</a></h3>
+<h4 id="2.3.1.-Boston-datasets">2.3.1. Boston datasets<a class="anchor-link" href="#2.3.1.-Boston-datasets">&#182;</a></h4>
 </div>
 </div>
 </div>
@@ -12255,7 +12254,7 @@ listings.csv -     3,585 x 95
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="2.2.--Seattle-data">2.2.  Seattle data<a class="anchor-link" href="#2.2.--Seattle-data">&#182;</a></h3>
+<h4 id="2.3.2.-Seattle-datasets">2.3.2. Seattle datasets<a class="anchor-link" href="#2.3.2.-Seattle-datasets">&#182;</a></h4>
 </div>
 </div>
 </div>
@@ -12518,6 +12517,7 @@ listings.csv -     3,818 x 92
 <br> - Boston: 68,275 reviews (rows) x  6 features (columns).
 <br> - Seattle: 84,849 reviews (rows) x  6 features (columns). </li>
 </ul>
+<hr>
 
 </div>
 </div>
@@ -12526,7 +12526,7 @@ listings.csv -     3,818 x 92
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Section-3.--Assess-and-address-missing-data">Section 3.  Assess and address missing data<a class="anchor-link" href="#Section-3.--Assess-and-address-missing-data">&#182;</a></h2><p>First, I will look at the total proportion of missing values in the datasets. Individually these proportions are not very useful, but as a whole they may suggest systematic problems with the data, such as:</p>
+<h2 id="3.-Assessing-missing-data">3. Assessing missing data<a class="anchor-link" href="#3.-Assessing-missing-data">&#182;</a></h2><p>First, I will look at the total proportion of missing values in the datasets. Individually these proportions are not very useful, but as a whole they may suggest systematic problems with the data, such as:</p>
 <ol>
 <li>The pattern of total missing values across all 3 datasets of one of the cities differs substantially from the other city. </li>
 <li>One of the data sources, e.g. <code>reviews.csv</code>, has a major missing values problem for one city but not for the other city. </li>
@@ -12599,7 +12599,7 @@ reviews.csv: 0.00%
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="3.1.--Missing-data-by-column">3.1.  Missing data by column<a class="anchor-link" href="#3.1.--Missing-data-by-column">&#182;</a></h3><p>In this section I analyze the patterns of missing data within columns. The purpose of this assessment is to determine which features can be used for the main analyses and which features may be problematic due to either too many missing values or missing data that occurs in a systematic way.</p>
+<h3 id="3.1.-Missing-data-by-column">3.1. Missing data by column<a class="anchor-link" href="#3.1.-Missing-data-by-column">&#182;</a></h3><p>In this section I analyze the patterns of missing data within columns. The purpose of this assessment is to determine which features can be used for the main analyses and which features may be problematic due to either too many missing values or missing data that occurs in a systematic way.</p>
 <p>The utility function <code>hist_miss_by_cols()</code> used below builds histograms to visualize the distribution of missing data by column, measured as percentage of missing values.</p>
 <p>Let's first look at all the data at once:</p>
 
@@ -12658,7 +12658,7 @@ height=713
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="3.1.1.--Columns-in--calendar.csv">3.1.1.  Columns in  <code>calendar.csv</code><a class="anchor-link" href="#3.1.1.--Columns-in--calendar.csv">&#182;</a></h4>
+<h4 id="3.1.1.-Columns-in-calendar.csv">3.1.1. Columns in <code>calendar.csv</code><a class="anchor-link" href="#3.1.1.-Columns-in-calendar.csv">&#182;</a></h4>
 </div>
 </div>
 </div>
@@ -12853,7 +12853,7 @@ Seattle  100%
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="3.1.2.--Columns-in--listings.csv">3.1.2.  Columns in  <code>listings.csv</code><a class="anchor-link" href="#3.1.2.--Columns-in--listings.csv">&#182;</a></h4>
+<h4 id="3.1.2.-Columns-in-listings.csv">3.1.2. Columns in <code>listings.csv</code><a class="anchor-link" href="#3.1.2.-Columns-in-listings.csv">&#182;</a></h4>
 </div>
 </div>
 </div>
@@ -13040,7 +13040,7 @@ dtype: object
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="3.1.3.--Columns-in-reviews.csv">3.1.3.  Columns in <code>reviews.csv</code><a class="anchor-link" href="#3.1.3.--Columns-in-reviews.csv">&#182;</a></h4><p>Since <code>reviews.csv</code> has only 6 columns and almost no missing data, I will not plot the histograms and will rely on displaying the column-level missing data statistics.</p>
+<h4 id="3.1.3.-Columns-in-reviews.csv">3.1.3. Columns in <code>reviews.csv</code><a class="anchor-link" href="#3.1.3.-Columns-in-reviews.csv">&#182;</a></h4><p>Since <code>reviews.csv</code> has only 6 columns and almost no missing data, I will not plot the histograms and will rely on displaying the column-level missing data statistics.</p>
 
 </div>
 </div>
@@ -13122,12 +13122,12 @@ dtype: object
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="3.2.--Missing-data-by-row">3.2.  Missing data by row<a class="anchor-link" href="#3.2.--Missing-data-by-row">&#182;</a></h3><p>Having considered the patterns of missing data within columns, we now move to a similar exercise within rows.</p>
+<h3 id="3.2.-Missing-data-by-row">3.2. Missing data by row<a class="anchor-link" href="#3.2.-Missing-data-by-row">&#182;</a></h3><p>Having considered the patterns of missing data within columns, we now move to a similar exercise within rows.</p>
 <p>The utility function <code>count_rows_missing()</code> used below performs two tasks:</p>
 <ol>
 <li>Prints the count of rows per number of features missing. That is, it iterates from zero to the total number of features (or columns) and shows how many rows in the dataset are associated with that number of missing features. </li>
 <li>Displays a histogram to visualize the distribution of missing features per row in the dataset.
-#### 3.2.1.  Rows in  <code>calendar.csv</code></li>
+#### 3.2.1. Rows in <code>calendar.csv</code></li>
 </ol>
 
 </div>
@@ -13244,7 +13244,7 @@ height=273
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The figures above are consistent with the analysis in the previous section. Many rows have a missing value in the <code>price</code> column, which is associated with a listing being unavailable. So it seems that we don't have any problematic rows.</p>
-<h4 id="3.2.2.--Rows-in--listings.csv">3.2.2.  Rows in  <code>listings.csv</code><a class="anchor-link" href="#3.2.2.--Rows-in--listings.csv">&#182;</a></h4>
+<h4 id="3.2.2.-Rows-in-listings.csv">3.2.2. Rows in <code>listings.csv</code><a class="anchor-link" href="#3.2.2.-Rows-in-listings.csv">&#182;</a></h4>
 </div>
 </div>
 </div>
@@ -13333,7 +13333,7 @@ height=327
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The charts above show that the datasets don't seem to have a systematic pattern of groups of rows having unusual numbers of missing features.</p>
-<h4 id="3.2.3.--Rows-in--reviews.csv">3.2.3.  Rows in  <code>reviews.csv</code><a class="anchor-link" href="#3.2.3.--Rows-in--reviews.csv">&#182;</a></h4>
+<h4 id="3.2.3.-Rows-in-reviews.csv">3.2.3. Rows in <code>reviews.csv</code><a class="anchor-link" href="#3.2.3.-Rows-in-reviews.csv">&#182;</a></h4>
 </div>
 </div>
 </div>
@@ -13449,6 +13449,7 @@ height=273
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The charts above show that the <code>reviews.csv</code> datasets have no rows with more than 1 (out of 6) missing features.</p>
 <p>Based on the assessment above I conclude that there is no need to drop any rows for the upcoming analyses.</p>
+<hr>
 
 </div>
 </div>
@@ -13457,9 +13458,9 @@ height=273
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Section-4.--Re-encode-and-transform-features">Section 4.  Re-encode and transform features<a class="anchor-link" href="#Section-4.--Re-encode-and-transform-features">&#182;</a></h2><p>In order to assess which features require re-encoding, transformations, scaling, etc., we first  need to understand the datatypes in the DataFrames as well as some descriptive statistics.</p>
+<h2 id="4.--Preparing-data-for-analyses">4.  Preparing data for analyses<a class="anchor-link" href="#4.--Preparing-data-for-analyses">&#182;</a></h2><p>In order to assess which features require re-encoding, transformations, scaling, etc., we first  need to understand the datatypes in the DataFrames as well as some descriptive statistics.</p>
 <p>The utility function <code>describe_columns()</code>  provides a high-level view of the properties of the data, excluding missing values. The function returns a data frame including the output of Pandas native <code>describe()</code> method, plus the data type by columns and some additional descriptive statistics; namely, the 0.90 and 0.99 quantiles.</p>
-<h3 id="4.1.--Features-in--calendar">4.1.  Features in  <code>calendar</code><a class="anchor-link" href="#4.1.--Features-in--calendar">&#182;</a></h3>
+<h3 id="4.1.-Re-encode-features-in-calendar">4.1. Re-encode features in <code>calendar</code><a class="anchor-link" href="#4.1.-Re-encode-features-in-calendar">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -13536,7 +13537,7 @@ height=273
     <tr>
       <th>top</th>
       <td>NaN</td>
-      <td>2017-04-09</td>
+      <td>2016-12-03</td>
       <td>f</td>
       <td>$150.00</td>
     </tr>
@@ -13625,7 +13626,7 @@ height=273
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="--price-feature">- <code>price</code> feature<a class="anchor-link" href="#--price-feature">&#182;</a></h4>
+<h4 id="4.1.1.-calendar[&quot;price&quot;]-&#8212;-from-string-to-numerical">4.1.1. <code>calendar["price"]</code> &#8212; from string to numerical<a class="anchor-link" href="#4.1.1.-calendar[&quot;price&quot;]-&#8212;-from-string-to-numerical">&#182;</a></h4>
 </div>
 </div>
 </div>
@@ -13664,12 +13665,12 @@ height=273
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Sample of &#34;price&#34; data in Boston:
-[&#39;$175.00&#39; &#39;$600.00&#39; &#39;$100.00&#39; &#39;$265.00&#39; &#39;$600.00&#39; &#39;$300.00&#39; &#39;$399.00&#39;
- &#39;$900.00&#39; &#39;$125.00&#39; &#39;$40.00&#39;] 
+[&#39;$188.00&#39; &#39;$100.00&#39; &#39;$137.00&#39; &#39;$179.00&#39; &#39;$155.00&#39; &#39;$170.00&#39; &#39;$100.00&#39;
+ &#39;$251.00&#39; &#39;$149.00&#39; &#39;$40.00&#39;] 
 
 Sample of &#34;price&#34; data in Seattle:
-[&#39;$65.00&#39; &#39;$109.00&#39; &#39;$69.00&#39; &#39;$250.00&#39; &#39;$225.00&#39; &#39;$119.00&#39; &#39;$75.00&#39;
- &#39;$99.00&#39; &#39;$125.00&#39; &#39;$95.00&#39;] 
+[&#39;$355.00&#39; &#39;$126.00&#39; &#39;$60.00&#39; &#39;$120.00&#39; &#39;$185.00&#39; &#39;$105.00&#39; &#39;$295.00&#39;
+ &#39;$78.00&#39; &#39;$59.00&#39; &#39;$100.00&#39;] 
 
 </pre>
 </div>
@@ -13686,20 +13687,22 @@ Sample of &#34;price&#34; data in Seattle:
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Function: transform price column</span>
 <span class="k">def</span> <span class="nf">price_re</span><span class="p">(</span><span class="n">price_str</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    INPUT: </span>
-<span class="sd">        price_str - string containing price with dollar symbol and comma </span>
-<span class="sd">    OUTPUT: </span>
-<span class="sd">        re-encoded price</span>
+    <span class="sd">&quot;&quot;&quot;Re-encode string of a dollar amount to float</span>
+<span class="sd">    </span>
+<span class="sd">    Args: </span>
+<span class="sd">        price_str (str): Price value with dollar symbol and comma </span>
+<span class="sd">    Returns: </span>
+<span class="sd">        np.float32</span>
+<span class="sd">        </span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">price_str</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">(</span><span class="n">price_str</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">))</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
-<span class="c1">##</span>
+
 <span class="c1"># Test function</span>
 <span class="n">temp</span> <span class="o">=</span> <span class="s1">&#39;$7,163.00&#39;</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Test function with string </span><span class="si">{}</span><span class="s1">.</span><span class="se">\n</span><span class="s1">Output:  </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span> <span class="n">price_re</span><span class="p">(</span><span class="n">temp</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Test function with string </span><span class="si">{}</span><span class="s1">.</span><span class="se">\n</span><span class="s1">Output: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span> <span class="n">price_re</span><span class="p">(</span><span class="n">temp</span><span class="p">)))</span>
 </pre></div>
 
 </div>
@@ -13717,7 +13720,7 @@ Sample of &#34;price&#34; data in Seattle:
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Test function with string $7,163.00.
-Output:  7163.0
+Output: 7163.0
 </pre>
 </div>
 </div>
@@ -13736,7 +13739,8 @@ Output:  7163.0
 <span class="n">eng_feat</span> <span class="o">=</span> <span class="s1">&#39;price_re&#39;</span>
 <span class="c1"># Loop over cities and apply &#39;price_re()&#39;</span>
 <span class="k">for</span> <span class="n">city</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-    <span class="n">data</span><span class="p">[</span><span class="n">city</span><span class="p">][</span><span class="s1">&#39;calendar&#39;</span><span class="p">][</span><span class="n">eng_feat</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">city</span><span class="p">][</span><span class="s1">&#39;calendar&#39;</span><span class="p">][</span><span class="n">original_feat</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">price_re</span><span class="p">)</span>
+    <span class="n">data</span><span class="p">[</span><span class="n">city</span><span class="p">][</span><span class="s1">&#39;calendar&#39;</span><span class="p">][</span><span class="n">eng_feat</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">city</span><span class="p">][</span><span class="s1">&#39;calendar&#39;</span><span class="p">][</span><span class="n">original_feat</span><span class="p">]</span>
+                                        <span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">price_re</span><span class="p">))</span>
 </pre></div>
 
 </div>
@@ -13748,7 +13752,7 @@ Output:  7163.0
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="--available-feature">- <code>available</code> feature<a class="anchor-link" href="#--available-feature">&#182;</a></h4>
+<h4 id="4.1.2.-calendar[&quot;available&quot;]-&#8212;-from-string-to-binary-numerical">4.1.2. <code>calendar["available"]</code> &#8212; from string to binary numerical<a class="anchor-link" href="#4.1.2.-calendar[&quot;available&quot;]-&#8212;-from-string-to-binary-numerical">&#182;</a></h4>
 </div>
 </div>
 </div>
@@ -13819,8 +13823,8 @@ Unique values of &#34;available&#34; in Seattle:
 <span class="n">eng_feat</span> <span class="o">=</span> <span class="s1">&#39;available_re&#39;</span>
 <span class="c1"># Loop over cities and transform variable</span>
 <span class="k">for</span> <span class="n">city</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-    <span class="n">data</span><span class="p">[</span><span class="n">city</span><span class="p">][</span><span class="s1">&#39;calendar&#39;</span><span class="p">][</span><span class="n">eng_feat</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">city</span><span class="p">][</span><span class="s1">&#39;calendar&#39;</span><span class="p">][</span><span class="n">original_feat</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
-                                        <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="s1">&#39;t&#39;</span> <span class="k">else</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">data</span><span class="p">[</span><span class="n">city</span><span class="p">][</span><span class="s1">&#39;calendar&#39;</span><span class="p">][</span><span class="n">eng_feat</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">city</span><span class="p">][</span><span class="s1">&#39;calendar&#39;</span><span class="p">][</span><span class="n">original_feat</span><span class="p">]</span>
+                                        <span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="s1">&#39;t&#39;</span> <span class="k">else</span> <span class="mi">0</span><span class="p">))</span>
 </pre></div>
 
 </div>
@@ -13832,7 +13836,7 @@ Unique values of &#34;available&#34; in Seattle:
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="--date-feature">- <code>date</code> feature<a class="anchor-link" href="#--date-feature">&#182;</a></h4>
+<h4 id="4.1.3.-calendar[&quot;date&quot;]-&#8212;-from-string-to-Pandas-timestamp">4.1.3. <code>calendar["date"]</code> &#8212; from string to Pandas timestamp<a class="anchor-link" href="#4.1.3.-calendar[&quot;date&quot;]-&#8212;-from-string-to-Pandas-timestamp">&#182;</a></h4>
 </div>
 </div>
 </div>
@@ -13862,12 +13866,12 @@ Unique values of &#34;available&#34; in Seattle:
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Sample of &#34;date&#34; feature in Boston:
-[&#39;2017-03-01&#39; &#39;2017-03-21&#39; &#39;2017-04-25&#39; &#39;2016-09-14&#39; &#39;2017-07-03&#39;
- &#39;2017-08-27&#39; &#39;2016-11-17&#39; &#39;2017-07-21&#39; &#39;2016-10-01&#39; &#39;2016-09-25&#39;] 
+[&#39;2016-09-26&#39; &#39;2016-10-14&#39; &#39;2017-04-09&#39; &#39;2016-12-05&#39; &#39;2016-12-19&#39;
+ &#39;2017-08-12&#39; &#39;2017-01-30&#39; &#39;2016-10-09&#39; &#39;2016-11-11&#39; &#39;2016-09-20&#39;] 
 
 Sample of &#34;date&#34; feature in Seattle:
-[&#39;2016-09-27&#39; &#39;2016-12-31&#39; &#39;2016-11-01&#39; &#39;2016-01-10&#39; &#39;2016-05-18&#39;
- &#39;2016-12-22&#39; &#39;2016-12-08&#39; &#39;2016-03-05&#39; &#39;2016-12-21&#39; &#39;2016-12-20&#39;] 
+[&#39;2016-03-04&#39; &#39;2016-06-07&#39; &#39;2016-06-06&#39; &#39;2016-05-23&#39; &#39;2016-05-21&#39;
+ &#39;2016-05-12&#39; &#39;2016-01-19&#39; &#39;2016-12-23&#39; &#39;2016-04-04&#39; &#39;2016-06-29&#39;] 
 
 </pre>
 </div>
@@ -13891,13 +13895,13 @@ Sample of &#34;date&#34; feature in Seattle:
 <div class="prompt input_prompt">In&nbsp;[115]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Re-encode &#39;date&#39;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Re-encode &#39;date&#39; into Pandas timestamp</span>
 <span class="n">original_feat</span> <span class="o">=</span> <span class="s1">&#39;date&#39;</span>
 <span class="n">eng_feat</span> <span class="o">=</span> <span class="s1">&#39;date_re&#39;</span>
 <span class="c1"># Loop over cities and transform variable</span>
 <span class="k">for</span> <span class="n">city</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-    <span class="n">data</span><span class="p">[</span><span class="n">city</span><span class="p">][</span><span class="s1">&#39;calendar&#39;</span><span class="p">][</span><span class="n">eng_feat</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">city</span><span class="p">][</span><span class="s1">&#39;calendar&#39;</span><span class="p">][</span><span class="n">original_feat</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
-                                        <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+    <span class="n">data</span><span class="p">[</span><span class="n">city</span><span class="p">][</span><span class="s1">&#39;calendar&#39;</span><span class="p">][</span><span class="n">eng_feat</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">city</span><span class="p">][</span><span class="s1">&#39;calendar&#39;</span><span class="p">][</span><span class="n">original_feat</span><span class="p">]</span>
+                                        <span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
 </pre></div>
 
 </div>
@@ -13909,7 +13913,7 @@ Sample of &#34;date&#34; feature in Seattle:
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Below I used the newly re-encoded dates to create features that will be used in the upcoming analyses:</p>
+<h4 id="4.1.4.-Create-other-time-based-features">4.1.4. Create other time-based features<a class="anchor-link" href="#4.1.4.-Create-other-time-based-features">&#182;</a></h4><p>Below I used the newly re-encoded dates to create features that will be used in the upcoming analyses:</p>
 <ol>
 <li><code>day_of_week</code>:  Monday = 0, Tuesday = 1, ..., Sunday = 6</li>
 <li><code>day_of_year</code>:  1, 2, …, 365, 366 (i.e., from Jan-1 to Dec-31)</li>
@@ -14075,7 +14079,7 @@ Sample of &#34;date&#34; feature in Seattle:
     <tr>
       <th>top</th>
       <td>NaN</td>
-      <td>2017-04-09</td>
+      <td>2016-12-03</td>
       <td>f</td>
       <td>$150.00</td>
       <td>NaN</td>
@@ -14257,7 +14261,7 @@ Sample of &#34;date&#34; feature in Seattle:
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The expanded DataFrame <code>calendar</code>, as shown above, contains most data we need for the analysis, modeling, and visualizations below.</p>
-<h3 id="4.2.--Features-in--reviews">4.2.  Features in  <code>reviews</code><a class="anchor-link" href="#4.2.--Features-in--reviews">&#182;</a></h3><h4 id="--date-feature">- <code>date</code> feature<a class="anchor-link" href="#--date-feature">&#182;</a></h4>
+<h3 id="4.2.-Re-encode-features-in-reviews">4.2. Re-encode features in <code>reviews</code><a class="anchor-link" href="#4.2.-Re-encode-features-in-reviews">&#182;</a></h3><h4 id="4.2.1.-reviews[&quot;date&quot;]-&#8212;-from-string-to-Pandas-timestamp">4.2.1. <code>reviews["date"]</code> &#8212; from string to Pandas timestamp<a class="anchor-link" href="#4.2.1.-reviews[&quot;date&quot;]-&#8212;-from-string-to-Pandas-timestamp">&#182;</a></h4>
 </div>
 </div>
 </div>
@@ -14507,9 +14511,9 @@ Sample of &#34;date&#34; feature in Seattle:
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="4.3.--Add-count-of-reviews-to-calendar">4.3.  Add count of reviews to <code>calendar</code><a class="anchor-link" href="#4.3.--Add-count-of-reviews-to-calendar">&#182;</a></h3><p>Before jumping into the analyses below, we need to determine whether the quantity of reviews for the listings in the <code>calendar</code> datasets is (1) a constant number or (2) a variable that changes across the time dimension of the panel data.</p>
+<h3 id="4.3.-Add-count-of-reviews-to-calendar-datasets">4.3. Add count of reviews to <code>calendar</code> datasets<a class="anchor-link" href="#4.3.-Add-count-of-reviews-to-calendar-datasets">&#182;</a></h3><p>Before jumping into the analyses below, we need to determine whether the quantity of reviews for the listings in the <code>calendar</code> datasets is (1) a constant number or (2) a variable that changes across the time dimension of the panel data.</p>
 <p>Statistics concerning reviews per listing are recorded in two of the datasets: <code>listings</code> and <code>reviews</code>. In <code>listings</code>, reviews are recorded as a constant number per listing, since this dataset is cross-sectional (i.e., it doesn't incorporate a time dimension). In <code>reviews</code>, on the other hand, reviews are recorded across time; so I will look into the dates of last recorded review in the <code>reviews</code> datasets and I will compare these dates with the dates of first recorded prices in the <code>calendar</code> datasets. If these date overlap, then it is possible that we could have a measurement for guest reviews over time in the <code>calendar</code> dataset.</p>
-<h4 id="4.3.1.--Count-of-reviews-in-the-reviews-datasets">4.3.1.  Count of reviews in the <code>reviews</code> datasets<a class="anchor-link" href="#4.3.1.--Count-of-reviews-in-the-reviews-datasets">&#182;</a></h4>
+<h4 id="4.3.1.-Count-of-reviews-in-the-reviews-datasets">4.3.1. Count of reviews in the <code>reviews</code> datasets<a class="anchor-link" href="#4.3.1.-Count-of-reviews-in-the-reviews-datasets">&#182;</a></h4>
 </div>
 </div>
 </div>
@@ -14662,7 +14666,7 @@ Seattle:  2016-01-04 00:00:00
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="4.3.2.--Count-of-reviews-in-the-listings-datasets">4.3.2.  Count of reviews in the <code>listings</code> datasets<a class="anchor-link" href="#4.3.2.--Count-of-reviews-in-the-listings-datasets">&#182;</a></h4><p>As noted above,the <code>listings</code> datasets also include data concerning reviews per listing.</p>
+<h4 id="4.3.2.-Count-of-reviews-in-the-listings-datasets">4.3.2. Count of reviews in the <code>listings</code> datasets<a class="anchor-link" href="#4.3.2.-Count-of-reviews-in-the-listings-datasets">&#182;</a></h4><p>As noted above,the <code>listings</code> datasets also include data concerning reviews per listing.</p>
 <p>First I will investigate whether these features have issues with missing data.</p>
 
 </div>
@@ -14778,7 +14782,7 @@ dtype: object
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[131]:</div>
+<div class="prompt input_prompt">In&nbsp;[129]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">temp</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">city</span><span class="p">][</span><span class="s1">&#39;calendar&#39;</span><span class="p">][</span><span class="s1">&#39;number_of_reviews&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span>
@@ -14824,12 +14828,14 @@ dtype: object
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Section-5.--Question-1">Section 5.  Question 1<a class="anchor-link" href="#Section-5.--Question-1">&#182;</a></h2><h2 id="What-is-the-temporal-behavior-of-listing-availability-in-year-of-sample?">What is the temporal behavior of listing-availability in year of sample?<a class="anchor-link" href="#What-is-the-temporal-behavior-of-listing-availability-in-year-of-sample?">&#182;</a></h2><p>I will address this question from two perspectives:</p>
+<h2 id="5.-Business-Question-#1:">5. Business Question #1:<a class="anchor-link" href="#5.-Business-Question-#1:">&#182;</a></h2><blockquote><h3 id="How-does-the-average-availability-of-homes-vary-over-time?">How does the average availability of homes vary over time?<a class="anchor-link" href="#How-does-the-average-availability-of-homes-vary-over-time?">&#182;</a></h3>
+</blockquote>
+<p>I will address this question from two perspectives:</p>
 <ol>
 <li>What is the empirical distribution of Airbnb per-listing-availability in year of sample?</li>
 <li>What is the temporal and seasonal behavior of average availability?</li>
 </ol>
-<h3 id="5.1.--Availability-per-listing-in-year-of-sample">5.1.  Availability per listing in year of sample<a class="anchor-link" href="#5.1.--Availability-per-listing-in-year-of-sample">&#182;</a></h3><p>We first would like to know whether all listings are observed the same number of times in the <code>calendar</code> DataFrames.</p>
+<h3 id="5.1.-Home-availability-in-a-year-of-sample">5.1. Home availability in a year of sample<a class="anchor-link" href="#5.1.-Home-availability-in-a-year-of-sample">&#182;</a></h3><p>We first would like to know whether all listings are observed the same number of times in the <code>calendar</code> DataFrames.</p>
 <p>The utility function <code>unique_listing_records()</code> takes in the <code>calendar</code> DataFrames, counts the number of observations per <code>listing_id</code>, and tabulates the unique values for total observations and the count of listings associated with these unique values.</p>
 
 </div>
@@ -14837,7 +14843,7 @@ dtype: object
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[132]:</div>
+<div class="prompt input_prompt">In&nbsp;[130]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Call function &#39;unique_listing_records()&#39;</span>
@@ -14884,7 +14890,7 @@ Seattle:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[133]:</div>
+<div class="prompt input_prompt">In&nbsp;[131]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Loop over cities and drop duplicates in &#39;calendar&#39;</span>
@@ -14932,13 +14938,13 @@ Seattle:
 <li>Prints the total number of listings in the dataset for the given city.</li>
 <li>Prints the start and final dates of the year-of-sample for the given city.</li>
 </ol>
-<h4 id="5.1.1.--Availability-per-listing:--Boston">5.1.1.  Availability per listing:  Boston<a class="anchor-link" href="#5.1.1.--Availability-per-listing:--Boston">&#182;</a></h4>
+<h4 id="5.1.1.-Home-availability-in-Boston">5.1.1. Home availability in Boston<a class="anchor-link" href="#5.1.1.-Home-availability-in-Boston">&#182;</a></h4>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[134]:</div>
+<div class="prompt input_prompt">In&nbsp;[132]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Call function &#39;countplot_availability()&#39;</span>
@@ -14990,13 +14996,13 @@ Year goes from 2016-09-06 to 2017-09-05
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="5.1.2.--Availability-per-listing:--Seattle">5.1.2.  Availability per listing:  Seattle<a class="anchor-link" href="#5.1.2.--Availability-per-listing:--Seattle">&#182;</a></h4>
+<h4 id="5.1.2.-Home-availability-in-Seattle">5.1.2. Home availability in Seattle<a class="anchor-link" href="#5.1.2.-Home-availability-in-Seattle">&#182;</a></h4>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[135]:</div>
+<div class="prompt input_prompt">In&nbsp;[133]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Call function &#39;countplot_availability()&#39;</span>
@@ -15046,7 +15052,7 @@ Year goes from 2016-01-04 to 2017-01-02
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[136]:</div>
+<div class="prompt input_prompt">In&nbsp;[134]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">cut</span> <span class="o">=</span> <span class="mi">300</span>
@@ -15087,7 +15093,7 @@ Seattle : 52%
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="5.1.3.--Discussion">5.1.3.  Discussion<a class="anchor-link" href="#5.1.3.--Discussion">&#182;</a></h4><p>Excluding both tails — near 0 days and 365 days of availability — the distribution of availability per listing in a year is similar in Boston and Seattle; that is, below approximately 300 days the distribution is fairly uniform, and it seems to increase non-linearly after that.</p>
+<h4 id="5.1.3.-Understanding-average-home-availability-in-a-year">5.1.3. Understanding average home availability in a year<a class="anchor-link" href="#5.1.3.-Understanding-average-home-availability-in-a-year">&#182;</a></h4><p>Excluding both tails — near 0 days and 365 days of availability — the distribution of availability per listing in a year is similar in Boston and Seattle; that is, below approximately 300 days the distribution is fairly uniform, and it seems to increase non-linearly after that.</p>
 <p>Despite the similarities in the middle of the distribution, there is significant difference between the cities if we look at the extremes. For Boston, the clearly dominant mode of the distribution is near 0 days of availability; whereas for Seattle, the dominant mode is near 365 days.</p>
 <p>My best guess is that the difference in the tails is a product of different approaches of sampling the Airbnb data — listings and dates — between the two cities (i.e., selection bias). In other words, I have a difficult time coming up with a hypothesis which would explain why these differences persist in the underlying population of Airbnb listings in these two cities.</p>
 <p>A plausible scenario consistent with selection bias is that all the Seattle listings were active on Airbnb during the year of sample (such that hosts were actually managing the availability of their homes on the platform), while a large plurality of Boston listings only became active hosts in the platform after the end of the year of sample for Boston.</p>
@@ -15099,7 +15105,7 @@ Seattle : 52%
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="5.2.--Temporal-and-seasonal-behavior-of-average-availability">5.2.  Temporal and seasonal behavior of average availability<a class="anchor-link" href="#5.2.--Temporal-and-seasonal-behavior-of-average-availability">&#182;</a></h3><p>The histograms above provide a snapshot of the availability per listing in their respective city and years of sample. But in order to understand the dynamic, temporal behavior of availability in a city we need to aggregate the cross-sectional snapshots of the data and analyze these statistics across the time dimension.</p>
+<h3 id="5.2.-How-does-the-average-availability-vary-over-time?">5.2. How does the average availability vary over time?<a class="anchor-link" href="#5.2.-How-does-the-average-availability-vary-over-time?">&#182;</a></h3><p>The histograms above provide a snapshot of the availability per listing in their respective city and years of sample. But in order to understand the dynamic, temporal behavior of availability in a city we need to aggregate the cross-sectional snapshots of the data and analyze these statistics across the time dimension.</p>
 <p>The utility function <code>time_series_means()</code> is a flexible function intended to visualize the time-series dimension of the <code>calendar</code> DataFrames; for either the proportion of available listings or the average price.</p>
 <p>Besides the datasets themselves, the function takes three additional keyword arguments:</p>
 <ol>
@@ -15112,7 +15118,7 @@ Seattle : 52%
 </ol>
 </li>
 </ol>
-<h4 id="5.2.1.--Calendar-date-time-series-of-availability-&#8212;-datetime">5.2.1.  Calendar-date time-series of availability &#8212; <code>datetime</code><a class="anchor-link" href="#5.2.1.--Calendar-date-time-series-of-availability-&#8212;-datetime">&#182;</a></h4><p>The time-series figure below plots the percentage of listings marked as available (per city) as function of calendar date.</p>
+<h4 id="5.2.1.-Availability-by-date-&#8212;-availability-vs-datetime">5.2.1. Availability by date &#8212; <code>availability</code> vs <code>datetime</code><a class="anchor-link" href="#5.2.1.-Availability-by-date-&#8212;-availability-vs-datetime">&#182;</a></h4><p>The time-series figure below plots the percentage of listings marked as available (per city) as function of calendar date.</p>
 <p>The data for Boston covers from 2016-09-06 to 2017-09-05 and the data for Seattle covers from 2016-01-04 to 2017-01-02.</p>
 
 </div>
@@ -15120,7 +15126,7 @@ Seattle : 52%
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[137]:</div>
+<div class="prompt input_prompt">In&nbsp;[135]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Call function &#39;time_series_means()&#39;</span>
@@ -15163,7 +15169,7 @@ height=396
 <p>Both cities show a similar "ramp up" behavior in average availability in the first three months of each of their corresponding samples. After that, average availability is mostly stable with some small variation.</p>
 <p>Even though the trends look similar across the two cities, the trends settle at very different magnitudes of average availability; with Seattle's being significantly higher. Consistently with what I noted in the previous section, my best guess is that this difference in average availability is a product of different approaches of sampling the Airbnb data — listings and dates — between the two cities (i.e., selection bias). This is as opposed to Seattle and Boston inherently having such different levels of average availability on Airbnb in the long run.</p>
 <p>Finally, the ramp up behavior in availability also looks like an issue of sample selection and not a characteristic of the 'real-world' behavior of Airbnb hosts. I would guess that the datasets were backfilled with calendar observations of listings before these were actually on Airbnb; that is, with the objective of having tidy panel data, with the same dates dimension recorded for all listings. As these yet-to-become Airbnb listings would be recorded as unavailable, this approach would produce an artificially low average availability that would ramp up with time.</p>
-<h4 id="5.2.2.--Jan-1-to-Dec-31-time-series-of-availability-&#8212;-day_of_year">5.2.2.  Jan-1 to Dec-31 time-series of availability &#8212; <code>day_of_year</code><a class="anchor-link" href="#5.2.2.--Jan-1-to-Dec-31-time-series-of-availability-&#8212;-day_of_year">&#182;</a></h4><p>For the second case, I plot the percentage of listings marked as available (per city) as function of day of year; from Jan-1 to Dec 31.</p>
+<h4 id="5.2.2.-Availability-by-day-of-year-&#8212;-availability-vs--day_of_year">5.2.2. Availability by day-of-year &#8212; <code>availability</code> vs  <code>day_of_year</code><a class="anchor-link" href="#5.2.2.-Availability-by-day-of-year-&#8212;-availability-vs--day_of_year">&#182;</a></h4><p>For the second case, I plot the percentage of listings marked as available (per city) as function of day of year; from Jan-1 to Dec 31.</p>
 <p>This approach allows for a better comparative analysis of the seasonal behavior of availability in the two cities.</p>
 
 </div>
@@ -15171,7 +15177,7 @@ height=396
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[138]:</div>
+<div class="prompt input_prompt">In&nbsp;[136]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Call function &#39;time_series_means()&#39;</span>
@@ -15213,7 +15219,7 @@ height=396
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Average availability does not seem to show a clear seasonal behavior in these datasets. It is plausible that some of the small dips in availability are associated with high-demand times-of-year, such as Spring Break and the start of Summer.</p>
 <p>On the other hand, I'd argue that these plots show non-seasonal and odd behavior of average availability are consistent with my explanation in previous sections regarding the low average availabilities being an artifice of sample selection and dataset construction.</p>
-<h4 id="5.2.3.--Day-of-sample-time-series-of-availability-&#8212;-day_of_sample">5.2.3.  Day-of-sample time-series of availability &#8212; <code>day_of_sample</code><a class="anchor-link" href="#5.2.3.--Day-of-sample-time-series-of-availability-&#8212;-day_of_sample">&#182;</a></h4><p>The final time dimension I explore is <code>day_of_sample</code>; from 0 to 365.</p>
+<h4 id="5.2.3.-Availability-by-day-of-sample-&#8212;-availability-vs-day_of_sample">5.2.3. Availability by day-of-sample &#8212; <code>availability</code> vs <code>day_of_sample</code><a class="anchor-link" href="#5.2.3.-Availability-by-day-of-sample-&#8212;-availability-vs-day_of_sample">&#182;</a></h4><p>The final time dimension I explore is <code>day_of_sample</code>; from 0 to 365.</p>
 <p>This approach allows for a comparative analysis of the trends in average availability as a function of the chronological dimension of the sample.</p>
 
 </div>
@@ -15221,7 +15227,7 @@ height=396
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[139]:</div>
+<div class="prompt input_prompt">In&nbsp;[137]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Call function &#39;time_series_means()&#39;</span>
@@ -15270,22 +15276,23 @@ height=396
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Section-6.--Question-2">Section 6.  Question 2<a class="anchor-link" href="#Section-6.--Question-2">&#182;</a></h2><h2>What is the seasonal behavior of average prices? <br> Are average prices consistently higher on weekends?</h2>
+<h2 id="6.-Question-2">6. Question 2<a class="anchor-link" href="#6.-Question-2">&#182;</a></h2><blockquote><h3 id="What-are-the-seasonal-and-weekly-patterns-of-average-nightly-rates?">What are the seasonal and weekly patterns of average nightly rates?<a class="anchor-link" href="#What-are-the-seasonal-and-weekly-patterns-of-average-nightly-rates?">&#182;</a></h3>
+</blockquote>
 <p>As it was the case with Question 1, this section also makes use of the temporal dimension of the panel data, but in this case we will look into the temporal behavior of average prices in the two cities.</p>
-<h3 id="6.1.--Seasonal-behavior-of-average-prices">6.1.  Seasonal behavior of average prices<a class="anchor-link" href="#6.1.--Seasonal-behavior-of-average-prices">&#182;</a></h3><p>The following three figures show plots of the average prices per city, using the same three time axes used in the last section:</p>
+<h3 id="6.1.-Seasonal-behavior-of-average-rates">6.1. Seasonal behavior of average rates<a class="anchor-link" href="#6.1.-Seasonal-behavior-of-average-rates">&#182;</a></h3><p>The following three figures show plots of the average prices per city, using the same three time axes used in the last section:</p>
 <ul>
 <li><code>datetime</code></li>
 <li><code>day_of_sample</code></li>
 <li><code>day_of_year</code></li>
 </ul>
 <p>Since we are exploring the question of seasonal behavior, the last figure is the most important. It allows a clear comparative analysis of average prices as function of time of year. However, the first two figure can also provide insights about events that are unique or somehow not systematically related to time of year.</p>
-<h4 id="6.1.1.--Average-prices-by-calendar-date">6.1.1.  Average prices by calendar date<a class="anchor-link" href="#6.1.1.--Average-prices-by-calendar-date">&#182;</a></h4>
+<h4 id="6.1.1.-Average-nightly-rate-by-date-&#8212;-price-vs-datetime">6.1.1. Average nightly rate by date &#8212; <code>price</code> vs <code>datetime</code><a class="anchor-link" href="#6.1.1.-Average-nightly-rate-by-date-&#8212;-price-vs-datetime">&#182;</a></h4>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[140]:</div>
+<div class="prompt input_prompt">In&nbsp;[138]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Call function &#39;time_series_means()&#39;</span>
@@ -15326,13 +15333,13 @@ height=396
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The plots indicate that average price per city is a pretty noisy statistic, showing significant within-week variation. Since the Seattle time-series covers a calendar year, it's easier to identify a clear seasonal pattern of higher prices in the Summer. This should become even clearer when we look at prices by time of year.</p>
-<h4 id="6.1.2.--Average-prices-by-day-of-sample">6.1.2.  Average prices by day-of-sample<a class="anchor-link" href="#6.1.2.--Average-prices-by-day-of-sample">&#182;</a></h4>
+<h4 id="6.1.2.-Average-nightly-rate-by-day-of-sample-&#8212;-price-vs-day_of_sample">6.1.2. Average nightly rate by day-of-sample &#8212; <code>price</code> vs <code>day_of_sample</code><a class="anchor-link" href="#6.1.2.-Average-nightly-rate-by-day-of-sample-&#8212;-price-vs-day_of_sample">&#182;</a></h4>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[141]:</div>
+<div class="prompt input_prompt">In&nbsp;[139]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Call function &#39;time_series_means()&#39;</span>
@@ -15375,13 +15382,13 @@ height=396
 <p>For Boston, average prices in the first third of the year of sample are higher and noisier than any other segment of the plots for both cities. Since <code>price</code> only takes values for dates on which a listing is available, the highly variable behavior of prices in Boston is almost surely a product of a smaller sample of available listings and prices, which we observed in Section 5.</p>
 <p>Following the noisier segment in the first 120 days of sample, the Boston average price behaves seems to follow the same weekly cycle as Seattle's average price. That said, Boston prices remain higher than Seattle's for the entire year.</p>
 <p>Finally, there is a highly noticeable spike in the average price in Boston that does not seem to be a product of data issues. In other words, there is probably a "real-world" reason for this spike in price. I investigate this issue below.</p>
-<h4 id="6.1.3.--Average-prices-by-day-of-year">6.1.3.  Average prices by day-of-year<a class="anchor-link" href="#6.1.3.--Average-prices-by-day-of-year">&#182;</a></h4>
+<h4 id="6.1.3.-Average-nightly-rate-by-day-of-year-&#8212;-price-vs-day_of_year">6.1.3. Average nightly rate by day-of-year &#8212; <code>price</code> vs <code>day_of_year</code><a class="anchor-link" href="#6.1.3.-Average-nightly-rate-by-day-of-year-&#8212;-price-vs-day_of_year">&#182;</a></h4>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[142]:</div>
+<div class="prompt input_prompt">In&nbsp;[140]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Call function &#39;time_series_means()&#39;</span>
@@ -15428,7 +15435,7 @@ height=396
 <li>Considering this figure together with the previous two, we can safely guess that the spike in the Boston average price that happens in September is not a product of real conditions in the city. The high and noisy prices are due to a smaller sample of available listings. </li>
 <li>The highly noticeable spike in the Boston average price that happens in April of 2017 is most likely a product of some real event that affected the market conditions in the city.</li>
 </ol>
-<h4 id="6.1.4.--Price-spike-in-Boston-&#8212;-April-of-2017">6.1.4.  Price spike in Boston &#8212; April of 2017<a class="anchor-link" href="#6.1.4.--Price-spike-in-Boston-&#8212;-April-of-2017">&#182;</a></h4><p>In this section we will look into the spike in the Boston average price that happens in April of 2017.</p>
+<h4 id="6.1.4.-Rate-spike-in-Boston-&#8212;-April-of-2017">6.1.4. Rate spike in Boston &#8212; April of 2017<a class="anchor-link" href="#6.1.4.-Rate-spike-in-Boston-&#8212;-April-of-2017">&#182;</a></h4><p>In this section we will look into the spike in the Boston average price that happens in April of 2017.</p>
 <p>The following cells build a plot of average price in Boston for the relevant time window.</p>
 
 </div>
@@ -15436,7 +15443,7 @@ height=396
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[143]:</div>
+<div class="prompt input_prompt">In&nbsp;[141]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Select Boston calendar data for April</span>
@@ -15453,7 +15460,7 @@ height=396
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[144]:</div>
+<div class="prompt input_prompt">In&nbsp;[142]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Create figure and subplot  </span>
@@ -15509,7 +15516,7 @@ height=310
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The plot shows that the spike happened approximately from 2017-04-10 to 2017-04-18.</p>
 <p>Since the <strong>2017 Boston Marathon</strong> took place on Monday, April 17, I think it is safe to say that this was the event that caused the spike in demand and average prices for Airbnb's Boston listings.</p>
-<h3 id="6.2.--Association-between-average-price-and-day-of-week">6.2.  Association between average price and day-of-week<a class="anchor-link" href="#6.2.--Association-between-average-price-and-day-of-week">&#182;</a></h3><p>In the multiple figures we have already seen, it is clear that average prices in both cities follow some sort of weekly cycle.</p>
+<h3 id="6.2.-Average-nightly-rates-by-day-of-week">6.2. Average nightly rates by day-of-week<a class="anchor-link" href="#6.2.-Average-nightly-rates-by-day-of-week">&#182;</a></h3><p>In the multiple figures we have already seen, it is clear that average prices in both cities follow some sort of weekly cycle.</p>
 <p>The following cell calculates and tabulates the sample average prices by day-of-week for Boston and Seattle.</p>
 
 </div>
@@ -15517,7 +15524,7 @@ height=310
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[145]:</div>
+<div class="prompt input_prompt">In&nbsp;[143]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Print title</span>
@@ -15597,7 +15604,7 @@ Seattle:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[146]:</div>
+<div class="prompt input_prompt">In&nbsp;[144]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Create &#39;fri_sat&#39;</span>
@@ -15624,13 +15631,13 @@ Seattle:
 <li>Friday and Saturday evenings, and </li>
 <li>the rest of the week.</li>
 </ol>
-<h4 id="6.2.1.--Weekend-prices-in-Seattle">6.2.1.  Weekend prices in Seattle<a class="anchor-link" href="#6.2.1.--Weekend-prices-in-Seattle">&#182;</a></h4>
+<h4 id="6.2.1.-Weekend-rates-in-Seattle">6.2.1. Weekend rates in Seattle<a class="anchor-link" href="#6.2.1.-Weekend-rates-in-Seattle">&#182;</a></h4>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[147]:</div>
+<div class="prompt input_prompt">In&nbsp;[145]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Call function weekend_prices()</span>
@@ -15689,13 +15696,13 @@ height=382
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The two figures above clearly show how the noisy average price in Seattle can be smoothed out significantly by separating the data and making one plot of Friday-Saturdays price and another plot of average price for the rest of the week.</p>
 <p>The average Fri-Sat price remains approximately 6% higher than the average weekday price during the entire sample.</p>
-<h4 id="6.2.2.--Weekend-prices-in-Boston">6.2.2.  Weekend prices in Boston<a class="anchor-link" href="#6.2.2.--Weekend-prices-in-Boston">&#182;</a></h4>
+<h4 id="6.2.2.-Weekend-rates-in-Boston">6.2.2. Weekend rates in Boston<a class="anchor-link" href="#6.2.2.-Weekend-rates-in-Boston">&#182;</a></h4>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[148]:</div>
+<div class="prompt input_prompt">In&nbsp;[146]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Call function weekend_prices()</span>
@@ -15754,9 +15761,20 @@ height=382
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>In Boston, the gap between average Fri-Sat price and average weekday price is smaller and noisier than Seattle; in the range of 3-4%.</p>
 <p>The gap closes completely during the price spike associated with the 2017 Boston Marathon, presumably due to the event taking place on a Monday and causing a spike in demand for Sunday evening.</p>
-<h2 id="Section-7.--Question-3">Section 7.  Question 3<a class="anchor-link" href="#Section-7.--Question-3">&#182;</a></h2><h2 id="What-is-the-association-between-average-price-and-quantity-of-guest-reviews?">What is the association between average price and quantity of guest reviews?<a class="anchor-link" href="#What-is-the-association-between-average-price-and-quantity-of-guest-reviews?">&#182;</a></h2><p>In the final section of this project I investigate the association between average prices and the quantity of reviews.</p>
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="7.-Business-Question-#3:">7. Business Question #3:<a class="anchor-link" href="#7.-Business-Question-#3:">&#182;</a></h2><blockquote><h3 id="Is-there-a-clear-association-between-the-nightly-rate-and-the-number-of-guest-reviews-received?">Is there a clear association between the nightly rate and the number of guest reviews received?<a class="anchor-link" href="#Is-there-a-clear-association-between-the-nightly-rate-and-the-number-of-guest-reviews-received?">&#182;</a></h3>
+</blockquote>
+<p>In the final section of this project I investigate the association between average prices and the quantity of reviews.</p>
 <p>It is important to stress the fact that the following analysis does not incorporate the content of the guest reviews. In other words, there is no distinction between good, neutral, and bad reviews. A more complete analysis of the relationship between prices and guest reviews ought to look into the content of the reviews in order to assess how different types of reviews are associated with average price.</p>
-<h3 id="7.1.--Descriptive-statistics-of-total_reviews">7.1.  Descriptive statistics of <code>total_reviews</code><a class="anchor-link" href="#7.1.--Descriptive-statistics-of-total_reviews">&#182;</a></h3><p>The utility function <code>countplot_reviews()</code> takes in the <code>calendar</code> dataset, enhanced with the count of reviews, and performs two tasks:</p>
+<h3 id="7.1.-Descriptive-statistics-of-total_reviews">7.1. Descriptive statistics of <code>total_reviews</code><a class="anchor-link" href="#7.1.-Descriptive-statistics-of-total_reviews">&#182;</a></h3><p>The utility function <code>countplot_reviews()</code> takes in the <code>calendar</code> dataset, enhanced with the count of reviews, and performs two tasks:</p>
 <ol>
 <li>Prints descriptive statistics for reviews received. </li>
 <li>Builds a histogram of number of reviews by listing. </li>
@@ -15767,7 +15785,7 @@ height=382
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[149]:</div>
+<div class="prompt input_prompt">In&nbsp;[147]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Call countplot_reviews() </span>
@@ -15835,7 +15853,7 @@ height=340
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[150]:</div>
+<div class="prompt input_prompt">In&nbsp;[148]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Call countplot_reviews() with cutoff</span>
@@ -15894,7 +15912,7 @@ height=340
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[151]:</div>
+<div class="prompt input_prompt">In&nbsp;[149]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Call countplot_reviews() with cutoff</span>
@@ -15956,7 +15974,7 @@ height=340
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Since <code>total_reviews</code> only takes non-negative values and we are working with highly skewed distributions in the context of linear models, it will be reasonable to consider different transformations of <code>total_reviews</code>.</p>
-<h3 id="7.2.--General-linear-model">7.2.  General linear model<a class="anchor-link" href="#7.2.--General-linear-model">&#182;</a></h3><p>The general form of the linear regressors to be fitted in the upcoming sections is a model of $price$ for listing $i$ in time $t$, as function of $total.reviews$, $home.size$, and $location$ of listing $i$ — as well as $time.of.year_t$:</p>
+<h3 id="7.2.-General-linear-model">7.2. General linear model<a class="anchor-link" href="#7.2.-General-linear-model">&#182;</a></h3><p>The general form of the linear regressors to be fitted in the upcoming sections is a model of $price$ for listing $i$ in time $t$, as function of $total.reviews$, $home.size$, and $location$ of listing $i$ — as well as $time.of.year_t$:</p>
 <p>\begin{equation*}
 price_{it} = f(total\_reviews_i) + g(home\_size_i, location_i) + h(time\_of\_year_t)
 \end{equation*}</p>
@@ -15972,7 +15990,7 @@ price_{it} = f(total\_reviews_i) + g(home\_size_i, location_i) + h(time\_of\_yea
 <li>Print the main coefficient for the independent variable of interest — either the number of reviews or a binary indicator for having any number of reviews. </li>
 <li>Return the fitted model, <code>X</code>, and <code>y</code>.</li>
 </ol>
-<h3 id="7.3.--Engineer-array-like-data-for-linear-regression">7.3.  Engineer array-like data for linear regression<a class="anchor-link" href="#7.3.--Engineer-array-like-data-for-linear-regression">&#182;</a></h3><p>The models in the upcoming sections will be estimated using modules in <strong>scikit-learn</strong>. Hence, we need to engineer or transform the data into the type of array-like data that is required by scikit-learn functions.</p>
+<h3 id="7.3.-Prepare-data-for-linear-regression">7.3. Prepare data for linear regression<a class="anchor-link" href="#7.3.-Prepare-data-for-linear-regression">&#182;</a></h3><p>The models in the upcoming sections will be estimated using modules in <strong>scikit-learn</strong>. Hence, we need to engineer or transform the data into the type of array-like data that is required by scikit-learn functions.</p>
 <p>Additionally, in order to use the data for both cities in the estimation step of the modeling below, I concatenate the datasets for Boston and Seattle into a single DataFrame, <code>df_lm</code>.</p>
 <p>In order to keep track of the city, I add the numeric, binary feature <code>boston</code> (1 if city is Boston, 0 otherwise).</p>
 
@@ -15981,7 +15999,7 @@ price_{it} = f(total\_reviews_i) + g(home\_size_i, location_i) + h(time\_of\_yea
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[152]:</div>
+<div class="prompt input_prompt">In&nbsp;[150]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Instantiate dictionary </span>
@@ -16008,7 +16026,7 @@ price_{it} = f(total\_reviews_i) + g(home\_size_i, location_i) + h(time\_of\_yea
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[153]:</div>
+<div class="prompt input_prompt">In&nbsp;[151]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Transform dictionary into single dataframe incl. both cities</span>
@@ -16031,7 +16049,7 @@ price_{it} = f(total\_reviews_i) + g(home\_size_i, location_i) + h(time\_of\_yea
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[154]:</div>
+<div class="prompt input_prompt">In&nbsp;[152]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Check for missing values in the new dataframe</span>
@@ -16048,7 +16066,7 @@ price_{it} = f(total\_reviews_i) + g(home\_size_i, location_i) + h(time\_of\_yea
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[154]:</div>
+<div class="prompt output_prompt">Out[152]:</div>
 
 
 
@@ -16084,7 +16102,7 @@ dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[155]:</div>
+<div class="prompt input_prompt">In&nbsp;[153]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Drop rows with missing values for price</span>
@@ -16102,7 +16120,7 @@ dtype: int64</pre>
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[155]:</div>
+<div class="prompt output_prompt">Out[153]:</div>
 
 
 
@@ -16148,7 +16166,7 @@ dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[156]:</div>
+<div class="prompt input_prompt">In&nbsp;[154]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Display first few rows of created dataframe</span>
@@ -16164,7 +16182,7 @@ dtype: int64</pre>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="7.4.--Naive,-pooled-linear-model">7.4.  Naive, pooled linear model<a class="anchor-link" href="#7.4.--Naive,-pooled-linear-model">&#182;</a></h3><p>This is the simplest linear model of <code>price</code> as function of <code>total_reviews</code>.</p>
+<h3 id="7.4.-Naive,-pooled-linear-model">7.4. Naive, pooled linear model<a class="anchor-link" href="#7.4.-Naive,-pooled-linear-model">&#182;</a></h3><p>This is the simplest linear model of <code>price</code> as function of <code>total_reviews</code>.</p>
 <p>\begin{equation*}
 log(price_{it}) = \alpha + \beta.total\_reviews_i
 \end{equation*}</p>
@@ -16175,7 +16193,7 @@ log(price_{it}) = \alpha + \beta.total\_reviews_i
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[157]:</div>
+<div class="prompt input_prompt">In&nbsp;[155]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Call linear_model() and store fitted model</span>
@@ -16212,7 +16230,7 @@ log(price_{it}) = \alpha + \beta.total\_reviews_i
 <p>The resulting estimate is <strong>-0.17</strong>. Since our outcome is the log of price, this estimate can be considered a percentage change in the main outcome, price, as function of the marginal review.</p>
 <p>In other words the naive-pooled-model estimate suggests that, on average, every additional guest review is associated with a decrease in listing price of 0.17%.</p>
 <p>This is counterintuitive if one believes that reviews tend to be positive and associated with good Airbnb hosting; which in turn should provide leverage for host to post higher prices for their homes.</p>
-<h3 id="7.5.--Pooled-linear-model-with-controls-for-home-size-and-location">7.5.  Pooled linear model with controls for home size and location<a class="anchor-link" href="#7.5.--Pooled-linear-model-with-controls-for-home-size-and-location">&#182;</a></h3><p>This model incorporates controls for home size and location by including the features <code>accommodates</code> and <code>neighbourhood_cleansed</code>. However, it still provides a pooled estimate since it collapses the time dimension of the data.</p>
+<h3 id="7.5.-Pooled-linear-model-with-controls-for-home-size-and-location">7.5. Pooled linear model with controls for home size and location<a class="anchor-link" href="#7.5.-Pooled-linear-model-with-controls-for-home-size-and-location">&#182;</a></h3><p>This model incorporates controls for home size and location by including the features <code>accommodates</code> and <code>neighbourhood_cleansed</code>. However, it still provides a pooled estimate since it collapses the time dimension of the data.</p>
 <p>\begin{equation*}
 log(price_{it}) = \alpha + \beta.total\_reviews_i + \gamma.f(max\_occupancy_i, neighborhood_i)
 \end{equation*}</p>
@@ -16222,7 +16240,7 @@ log(price_{it}) = \alpha + \beta.total\_reviews_i + \gamma.f(max\_occupancy_i, n
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[158]:</div>
+<div class="prompt input_prompt">In&nbsp;[156]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Select numeric and categorical control variables</span>
@@ -16261,7 +16279,7 @@ log(price_{it}) = \alpha + \beta.total\_reviews_i + \gamma.f(max\_occupancy_i, n
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Adding controls for home size and location produces an estimate that is about half of that of the naive model. The estimate suggests that, on average, every additional guest review is associated with a decrease in listing price of 0.09%.</p>
-<h3 id="7.6.--Linear-model-with-controls-for-home-size,-location,-and-time-trends">7.6.  Linear model with controls for home size, location, and time trends<a class="anchor-link" href="#7.6.--Linear-model-with-controls-for-home-size,-location,-and-time-trends">&#182;</a></h3><p>This is the first of the models to incorporate the time dimension of the data, by including a linear time trend plus its square and cube.</p>
+<h3 id="7.6.-Linear-model-with-controls-for-home-size,-location,-and-time-trends">7.6. Linear model with controls for home size, location, and time trends<a class="anchor-link" href="#7.6.-Linear-model-with-controls-for-home-size,-location,-and-time-trends">&#182;</a></h3><p>This is the first of the models to incorporate the time dimension of the data, by including a linear time trend plus its square and cube.</p>
 <p>\begin{equation*}
 log(price_{it}) = \alpha + \beta.total\_reviews_i + \gamma.f(max\_occupancy_i, neighborhood_i) + \delta.g(day\_of\_year_t)
 \end{equation*}</p>
@@ -16272,7 +16290,7 @@ log(price_{it}) = \alpha + \beta.total\_reviews_i + \gamma.f(max\_occupancy_i, n
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[159]:</div>
+<div class="prompt input_prompt">In&nbsp;[157]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Create non-linear time trends</span>
@@ -16287,7 +16305,7 @@ log(price_{it}) = \alpha + \beta.total\_reviews_i + \gamma.f(max\_occupancy_i, n
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[160]:</div>
+<div class="prompt input_prompt">In&nbsp;[158]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Select numeric and categorical control variables</span>
@@ -16327,7 +16345,7 @@ log(price_{it}) = \alpha + \beta.total\_reviews_i + \gamma.f(max\_occupancy_i, n
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The new estimate indicates that if we control for home size, location, and time trends, every additional guest review, on average, is associated with a decrease in listing price of 0.08%.</p>
 <p>It looks like adding controls for time-trends does not have a substantial impact on our estimate of interest. This was to be expected since <strong>our independent variable of interest, <code>total_reviews</code>, does not itself vary with time in the <code>calendar</code> datasets, which implies that the value for the estimate on <code>total_reviews</code> is driven by the variation of prices across homes of similar size in the same geographic area.</strong></p>
-<h3 id="7.7.--Inference-for-the-full-model-with-controls">7.7.  Inference for the full model with controls<a class="anchor-link" href="#7.7.--Inference-for-the-full-model-with-controls">&#182;</a></h3><p>Until now we have only looked at the point estimates for the parameter of interest, $\beta$, in all the models. In this section I use tools provided in the module <strong>Statsmodels</strong> to improve our understanding of the precision of our estimates.</p>
+<h3 id="7.7.-Inference-for-the-full-model-with-controls">7.7. Inference for the full model with controls<a class="anchor-link" href="#7.7.-Inference-for-the-full-model-with-controls">&#182;</a></h3><p>Until now we have only looked at the point estimates for the parameter of interest, $\beta$, in all the models. In this section I use tools provided in the module <strong>Statsmodels</strong> to improve our understanding of the precision of our estimates.</p>
 <p>Statsmodels' tools allow us to specify a robust covariance matrix, clustered at the level of <code>listing_id</code> (i.e., individual homes), which should result in more conservative confidence interval.</p>
 
 </div>
@@ -16335,7 +16353,7 @@ log(price_{it}) = \alpha + \beta.total\_reviews_i + \gamma.f(max\_occupancy_i, n
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[161]:</div>
+<div class="prompt input_prompt">In&nbsp;[159]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Pandas series to Numpy array</span>
@@ -16352,7 +16370,7 @@ log(price_{it}) = \alpha + \beta.total\_reviews_i + \gamma.f(max\_occupancy_i, n
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[162]:</div>
+<div class="prompt input_prompt">In&nbsp;[160]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Extract results summary from OLS fit</span>
@@ -16383,7 +16401,7 @@ log(price_{it}) = \alpha + \beta.total\_reviews_i + \gamma.f(max\_occupancy_i, n
 =====================================================================
 Model:              OLS              Adj. R-squared:     0.623       
 Dependent Variable: price_re         AIC:                1654394.2363
-Date:               2019-04-22 11:56 BIC:                1655817.7130
+Date:               2019-04-29 14:42 BIC:                1655817.7130
 No. Observations:   1577499          Log-Likelihood:     -8.2708e+05 
 Df Model:           115              F-statistic:        1.283e+05   
 Df Residuals:       1577383          Prob (F-statistic): 0.00        
@@ -16410,14 +16428,14 @@ strong multicollinearity or other numerical problems.
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>As shown in the table above, the 95% confidence interval for $\beta$ in the full model is <strong>(-0.0011, -0.0006)</strong>.</p>
 <p>This implies that if the full model — with controls for home size, location, and time trends — were representative of the real association between listing prices and reviews on Airbnb, we could be highly confident that we had a precise estimate of the underlying parameter $\beta$.</p>
-<h3 id="7.8.--Association-between-listing-price-and-being-reviewed">7.8.  Association between listing price and being reviewed<a class="anchor-link" href="#7.8.--Association-between-listing-price-and-being-reviewed">&#182;</a></h3><p>For this final section of the analysis, I investigate the association between prices and having either 0 reviews or 1 or more reviews. In order to do this, I engineer the indicator feature <code>reviewed</code> which takes value 0 for listings without any reviews, and the value 1 for listing with 1 or more reviews.</p>
+<h3 id="7.8.-Association-between-listing-price-and-being-reviewed">7.8. Association between listing price and being reviewed<a class="anchor-link" href="#7.8.-Association-between-listing-price-and-being-reviewed">&#182;</a></h3><p>For this final section of the analysis, I investigate the association between prices and having either 0 reviews or 1 or more reviews. In order to do this, I engineer the indicator feature <code>reviewed</code> which takes value 0 for listings without any reviews, and the value 1 for listing with 1 or more reviews.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[163]:</div>
+<div class="prompt input_prompt">In&nbsp;[161]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Create new variable &#39;reviewed&#39;</span>
@@ -16445,7 +16463,7 @@ log(price_{it}) = \alpha + \beta.reviewed_i + \gamma.f(max\_occupancy_i, neighbo
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[164]:</div>
+<div class="prompt input_prompt">In&nbsp;[162]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Select numeric and categorical control variables</span>
