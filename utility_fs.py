@@ -2,29 +2,32 @@
 # REVISED DATE: 04/22/2019
 # PURPOSE: Utility functions for DS-Term-2 Project 1
 
-# Import python modules
-import numpy as np
-import pandas as pd
+# Import python libraries
 import calendar
 from collections import Counter
+import numpy as np
+import pandas as pd
+import warnings
 
-# Import plotting modules
+# Import visualization libraries
+import matplotlib.dates as plotdates
 import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
-import matplotlib.dates as plotdates
 import seaborn as sns
+from pandas.plotting import register_matplotlib_converters
+register_matplotlib_converters()
 
 # Import scikit-learn modules
-from sklearn.pipeline import Pipeline
-from sklearn.impute import SimpleImputer
-from sklearn.preprocessing import StandardScaler, OneHotEncoder
 from sklearn.compose import ColumnTransformer
-import warnings
 from sklearn.exceptions import DataConversionWarning
+from sklearn.impute import SimpleImputer
 from sklearn.linear_model import LinearRegression
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import StandardScaler, OneHotEncoder
 
 # Import StatsModels modules
 import statsmodels.api as sm
+
 
 # Functions
 def print_data(data, city, rows=3):
@@ -42,6 +45,7 @@ def print_data(data, city, rows=3):
             dataset type — calendar, listings, reviews — as the second.
         city (str): 'Boston' or 'Seattle'.
         rows (int): Number of top rows to display.
+
     Returns: 
         None. Print statistics and display dataframes.
         
@@ -59,6 +63,7 @@ def print_data(data, city, rows=3):
         print('\n({}) First few rows of {}\'s {}.csv:'.format(k, city, name))
         display(df.head(n=rows))
 
+
 def hist_miss_by_cols(data, data_name):
     """Build histograms to visualize the distribution of missing values 
     per column, measured as percentage of column-values missing. 
@@ -67,6 +72,7 @@ def hist_miss_by_cols(data, data_name):
         data (dict): Hierarchical dict with city as the first level and 
             dataset type — calendar, listings, reviews — as the second.
         data_name (str): 'all', 'calendar', 'listings', or 'reviews'.
+    
     Returns: 
         None. Displays the histograms.
 
@@ -127,6 +133,7 @@ def hist_miss_by_cols(data, data_name):
                 fontweight='bold')
     plt.show()
 
+
 def missing_by_column(data, data_name, n_features=None):
     """Print the percentage of missing values per column for a given 
     dataset type and both cities, in descending order of percentage 
@@ -137,13 +144,13 @@ def missing_by_column(data, data_name, n_features=None):
             dataset type — calendar, listings, reviews — as the second.
         data_name (str): 'all', 'calendar', 'listings', or 'reviews'.
         n_features (int): Number of features to print
+    
     Returns: 
         None. Print missing values per column statistics.
 
     """
     # Print title
-    print('Percentage of missing values per column in {}.csv'.format(
-        data_name))
+    print('Percent missing values per column in {}.csv'.format(data_name))
     
     # Loop over cities
     for city, values in data.items():
@@ -152,11 +159,13 @@ def missing_by_column(data, data_name, n_features=None):
         pc = df.isnull().sum() / df.shape[0] * 100
         if n_features == None:
             n_features = len(pc)
+        
         # Sort, format, and print series of percentages
-        sorted_pc = pc.sort_values(ascending=False).apply(
-                        lambda x: '{:2.1f}%'.format(x))
+        sorted_pc = pc.sort_values(ascending=False)\
+            .apply(lambda x: '{:2.1f}%'.format(x))   
         print('\n{:^25}'.format('— ' + city + ' —'))
         print(sorted_pc[0:n_features + 1])
+
 
 def count_rows_missing(data, city, data_name):
     """Print the count of rows per number of features missing. That is, 
@@ -164,13 +173,14 @@ def count_rows_missing(data, city, data_name):
     rows in the dataset associated with that number of missing features.
 
     Also, display a histogram to visualize the distribution of missing 
-       features per row in the dataset.
+    features per row in the dataset.
     
     Args: 
         data (dict): Hierarchical dict with city as the first level and 
             dataset type — calendar, listings, reviews — as the second.
         city (str): 'Boston' or 'Seattle'.
         data_name (str): 'calendar', 'listings', or 'reviews'.
+    
     Returns: 
         None. Print missing values per column statistics.
 
@@ -185,14 +195,14 @@ def count_rows_missing(data, city, data_name):
     sorted_tuples = sorted(list(counter.items()), key=lambda tup: tup[0])
     
     # Print title
-    print('Count of rows per number of missing features in {}.csv'.format(
-        data_name))
+    print('Count of rows per number of missing features in {}.csv'\
+        .format(data_name))
     print('\n{}:'.format(city))
     
     # Loop over sorted counter and print results
     for t in sorted_tuples:
-        print('{:>2} of {:>2} missing: {:>3,} rows'.format(
-            t[0], df.shape[1], t[1]))
+        print('{:>2} of {:>2} missing: {:>3,} rows'\
+            .format(t[0], df.shape[1], t[1]))
     
     # Plot the same statistics     
     if data_name == 'listings':
@@ -203,10 +213,11 @@ def count_rows_missing(data, city, data_name):
     sns.countplot(missing_per_row)
     ax.set_xlabel('# of missing features')
     ax.set_ylabel('# of rows')
-    ax.set_yticklabels(['{:,}'.format(
-        int(x)) for x in ax.get_yticks().tolist()])
+    ax.set_yticklabels(['{:,}'\
+        .format(int(x)) for x in ax.get_yticks().tolist()])
     ax.grid(True)
     plt.show()
+
 
 def describe_columns(data, city, data_name):
     """Display dataframe including the output of the 'describe()' 
@@ -218,6 +229,7 @@ def describe_columns(data, city, data_name):
             dataset type — calendar, listings, reviews — as the second.
         city (str): 'Boston' or 'Seattle'.
         data_name (str): 'calendar', 'listings', or 'reviews'.
+    
     Returns: 
         None. Display dataframe of descriptive statistics.
 
@@ -236,9 +248,15 @@ def describe_columns(data, city, data_name):
                     df.quantile(.99).rename('99%', inplace=True)).transpose()
     
     # Build and display complete dataframe
-    df_desc = dtypes.append([summary_stats[0:-1], quantile_90, quantile_99,
-                        summary_stats[-1:]], sort=False)
+    df_desc = dtypes.append([
+        summary_stats[0:-1], 
+        quantile_90, 
+        quantile_99,
+        summary_stats[-1:]
+        ], sort=False)
+    
     display(df_desc)
+
 
 def unique_listing_records(data):
     """Count the number of observations per 'listing_id' in 'calendar', 
@@ -248,6 +266,7 @@ def unique_listing_records(data):
     Args: 
         data (dict): Hierarchical dict with city as the first level and 
             dataset type — calendar, listings, reviews — as the second.
+    
     Returns: 
         None. Print the counts.
 
@@ -257,17 +276,19 @@ def unique_listing_records(data):
         # Print city name
         print(city + ':')
         # Count the number of observations per 'listing_id' 
-        counts = data[city]['calendar'].groupby(
-            by=['listing_id'])['available_re'].count()
+        counts = data[city]['calendar']\
+            .groupby(by=['listing_id'])['available_re'].count()
         # Loop over unique values in counts
         for count in counts.unique():
             # Print number of listings associated with count
-            print('{} observations: {:>5,} listings'.format(
-                count, sum(counts == count)))
+            print('{} recorded nights: {:>5,} listings'\
+                .format(count, sum(counts == count)))
         print('')
 
+
 def countplot_availability(data, city):
-    """Perform three tasks using data in 'calendar'
+    """Perform three tasks using data in 'calendar':
+
     1. Build a histogram of the distribution of total days in the 
        year-of-sample when listings were recorded as available.
     2. Print the total number of listings in the dataset for given city.
@@ -277,6 +298,7 @@ def countplot_availability(data, city):
         data (dict): Hierarchical dict with city as the first level and 
             dataset type — calendar, listings, reviews — as the second.
         city (str): 'Boston' or 'Seattle'.
+    
     Returns: 
         None. Displays histogram and prints statistics.
 
@@ -297,24 +319,25 @@ def countplot_availability(data, city):
     sns.distplot(counter, kde=False, bins=25, color=col[city])
     # Set figure properties
     ax.text(1.07, 0.95, city, transform=ax.transAxes, fontsize=16, 
-                    verticalalignment='top', horizontalalignment='center', 
-                    bbox=dict(boxstyle='round', facecolor=col[city], 
-                    alpha=0.3))  
+        verticalalignment='top', horizontalalignment='center', 
+        bbox=dict(boxstyle='round', facecolor=col[city], alpha=0.3))  
     ax.set_title('HISTOGRAM OF LISTING AVAILABILITY IN A YEAR', 
         fontweight='bold')
     ax.set_xlabel('Available days in year')
     ax.set_ylabel('Total listings')
-    ax.set_yticklabels(['{:,}'.format(
-        int(x)) for x in ax.get_yticks().tolist()])
+    ax.set_yticklabels(['{:,}'\
+        .format(int(x)) for x in ax.get_yticks().tolist()])
     plt.show()
     
     # Print relevant statistics
     print('Total number of listings in {}: {:,}'.format(city, len(counter)))
     print('Year goes from {} to {}'.format(start_date, end_date))
 
+
 def time_series_means(data, variable, city, time_ax):
     """Build plot to visualize the time-series dimension of 'calendar'
     for the proportion of available listings or the average price.
+    
     Choose between three different time axes:
     1. datetime: calendar date; i.e., from 2016-01-04 to 2017-01-02
     2. day_of_year: from Jan 1st to Dec 31st
@@ -326,6 +349,7 @@ def time_series_means(data, variable, city, time_ax):
         variable (str): 'availability' or 'price'.
         city (str): 'Boston' or 'Seattle' or 'both'.
         time_ax (str): 'datetime' or 'day_of_year' or 'day_of_sample'.
+    
     Returns: 
         None. Displays the plot.
 
@@ -346,11 +370,11 @@ def time_series_means(data, variable, city, time_ax):
         # Loop over cities
         for city in cities:
             # Create series grouped by chosen time dimension
-            time_series = data[city]['calendar'].groupby(
-                by=['date_re'])[variable]
+            time_series = data[city]['calendar']\
+                .groupby(by=['date_re'])[variable]
             # Line plot
-            sns.lineplot(data = time_series.mean(), label=city,
-                        color=colors[city]) 
+            sns.lineplot(data = time_series.mean(), label=city, 
+                         color=colors[city]) 
         # x-axis properties            
         ax.get_xticks()
         ax.xaxis.set_major_locator(plotdates.MonthLocator(interval=2))
@@ -361,11 +385,12 @@ def time_series_means(data, variable, city, time_ax):
         # Loop over cities
         for city in cities:
             # Create series grouped by chosen time dimension
-            time_series = data[city]['calendar'].groupby(
-                            by=['day_of_year'])[variable]
+            time_series = data[city]['calendar']\
+                .groupby(by=['day_of_year'])[variable]
             # Line plot
             sns.lineplot(data = time_series.mean(), label=city,
-                        color=colors[city])            
+                         color=colors[city])    
+
         # x-axis properties
         majors = [1, 32, 61, 92, 122, 153, 183, 214, 245, 275, 306, 336]
         labels = calendar.month_abbr[1:13]
@@ -378,11 +403,11 @@ def time_series_means(data, variable, city, time_ax):
         # Loop over cities
         for city in cities:
             # Create series grouped by chosen time dimension
-            time_series = data[city]['calendar'].groupby(
-                            by=['day_of_sample'])[variable]
+            time_series = data[city]['calendar']\
+                .groupby(by=['day_of_sample'])[variable]
             # Line plot
             sns.lineplot(data = time_series.mean(), label=city,
-                        color=colors[city])
+                         color=colors[city])
         # x-axis properties    
         ax.set_xlabel('Day of sample per city', fontsize=14)
     
@@ -392,16 +417,19 @@ def time_series_means(data, variable, city, time_ax):
         ax.yaxis.set_major_locator(ticker.MaxNLocator(5))
         ax.yaxis.set_major_formatter(ticker.PercentFormatter(xmax=1)) 
         ax.set_title('TIME SERIES OF AVAILABILITY', fontsize=16,
-                    fontweight='bold')
+                     fontweight='bold')
         ax.set_ylabel('Percent listings available', fontsize=14)
+    
     # If outcome is price     
     elif variable == 'price_re':
         ax.yaxis.set_major_formatter(ticker.FormatStrFormatter("$%d")) 
         ax.set_title('TIME SERIES OF PRICES', fontsize=16,
-                    fontweight='bold')
+                     fontweight='bold')
         ax.set_ylabel('Price', fontsize=14)   
+    
     # Display figure 
     plt.show()
+
 
 def weekend_prices(data, city):
     """Use time_series_means() to explore the within-week variability 
@@ -414,26 +442,29 @@ def weekend_prices(data, city):
         data (dict): Hierarchical dict with city as the first level and 
             dataset type — calendar, listings, reviews — as the second.
         city (str): 'Boston' or 'Seattle' or 'both'.
+
     Returns: 
         None. Displays the plots.
 
     """ 
     # Build time-series data for plot
     df = pd.DataFrame()
-    df['price_re'] = data[city]['calendar'].groupby(
-        by=['day_of_sample'])['price_re'].mean()
-    df['day_of_sample'] = data[city]['calendar'].groupby(
-        by=['day_of_sample'])['day_of_sample'].min()
-    df['fri_sat'] = data[city]['calendar'].groupby(
-        by=['day_of_sample'])['fri_sat'].min()
+    df['price_re'] = data[city]['calendar']\
+        .groupby(by=['day_of_sample'])['price_re'].mean()
+    df['day_of_sample'] = data[city]['calendar']\
+        .groupby(by=['day_of_sample'])['day_of_sample'].min()
+    df['fri_sat'] = data[city]['calendar']\
+        .groupby(by=['day_of_sample'])['fri_sat'].min()
     
     # Call time_series_means()
     time_series_means(data, variable='price', city = city, 
-        time_ax = 'day_of_sample')
+                      time_ax = 'day_of_sample')
     
     # Color scheme
-    colors = {'Boston': ['salmon', 'firebrick'], 
-        'Seattle': ['plum', 'darkviolet']}
+    colors = {
+        'Boston': ['salmon', 'firebrick'], 
+        'Seattle': ['plum', 'darkviolet']
+        }
     
     # Create figure and subplot  
     fig, ax = plt.subplots(figsize=(12, 6))
@@ -442,15 +473,18 @@ def weekend_prices(data, city):
     sns.lineplot(data = df, x = 'day_of_sample', y = 'price_re', 
                  hue='fri_sat', palette=colors[city])
     ax.text(0.89, 0.83, city, transform=ax.transAxes, fontsize=14, 
-        verticalalignment='top', bbox=dict(boxstyle='round', 
-        facecolor=colors[city][0], alpha=0.5))
+            verticalalignment='top', bbox=dict(boxstyle='round', 
+            facecolor=colors[city][0], alpha=0.5))
     ax.legend(['Sun-Thu', 'Fri-Sat'])
+
     # Axes properties
     ax.set_xlabel('Day of sample', fontsize=14)
     ax.yaxis.set_major_formatter(ticker.FormatStrFormatter("$%d")) 
-    ax.set_ylabel('Price', fontsize=14)  
+    ax.set_ylabel('Price', fontsize=14) 
+
     # Display figure 
     plt.show()
+
 
 def countplot_reviews(data, city, cutoff=None):
     """Perform two tasks describing the distribution of reviews:
@@ -463,16 +497,17 @@ def countplot_reviews(data, city, cutoff=None):
         city (str): 'Boston' or 'Seattle'.
         cutoff (int): Limit number of reviews (x-axis) in order to 
             zoom in.
+
     Returns: 
         None. Print statistics and display histogram.
 
     """
     # Review number by listing id
-    review_counts = data[city]['calendar'].groupby(
-            by=['listing_id'])['total_reviews'].max()
+    review_counts = data[city]['calendar']\
+        .groupby(by=['listing_id'])['total_reviews'].max()
     # Print total reviews for city
-    print('Total number of reviews in {}: {:,}\n'.format(
-        city, review_counts.sum()))
+    print('Total number of reviews in {}: {:,}\n'\
+        .format(city, review_counts.sum()))
     
     # Central tendency stats
     stats = review_counts.describe().apply(round)
@@ -490,26 +525,31 @@ def countplot_reviews(data, city, cutoff=None):
         data = review_counts[review_counts <= cutoff]
     
     # Color scheme
-    colors = {'Boston': ['salmon', 'firebrick'], 
-        'Seattle': ['plum', 'darkorchid']}
+    colors = {
+        'Boston': ['salmon', 'firebrick'], 
+        'Seattle': ['plum', 'darkorchid']
+        }
     
     # Create figure and subplot 
     fig, ax = plt.subplots(figsize=(10, 5))
     sns.distplot(data, kde=False, bins=30, color=colors[city][1])
     ax.text(0.9, 0.95, city, transform=ax.transAxes, fontsize=14, 
-        verticalalignment='top', bbox=dict(boxstyle='round', 
-        facecolor=colors[city][0], alpha=0.5))
+            verticalalignment='top', bbox=dict(boxstyle='round', 
+            facecolor=colors[city][0], alpha=0.5))
+    
     # Figure properties
     ax.set_title('HISTOGRAM OF TOTAL REVIEWS RECEIVED', 
                  fontsize=14, fontweight='bold')
     ax.set_xlabel('Number of reviews')
     ax.set_ylabel('Total listings')
-    ax.set_yticklabels(['{:,}'.format(
-        int(x)) for x in ax.get_yticks().tolist()])
+    ax.set_yticklabels(['{:,}'\
+        .format(int(x)) for x in ax.get_yticks().tolist()])
     if cutoff is not None:
         ax.set_xlim(0, cutoff)
+    
     # Display figure 
     plt.show()
+
 
 def linear_model(data, outcome, ind_var='total_reviews',
                 numeric_features=[], categorical_features=[]):
@@ -542,7 +582,8 @@ def linear_model(data, outcome, ind_var='total_reviews',
         ind_var (str): 'total_reviews' or 'reviewed'.
         numeric_features (list): Column names for numeric covariates 
         categorical_features (list): Column names for categorical 
-            covariates
+        covariates
+
     Returns: 
         lm (sklearn obj): fitted scikit-learn linear regression model.
         X (array): matrix of independent variable and covariates values.
@@ -552,24 +593,24 @@ def linear_model(data, outcome, ind_var='total_reviews',
     # Instantiate numeric transformer: imputer + scaler
     numeric_transformer = Pipeline(steps=[
         ('imputer', SimpleImputer(strategy='constant', fill_value=0)),
-        ('scaler', StandardScaler())])
-    
+        ('scaler', StandardScaler())
+        ]) 
     # Instantiate categorical transformer: imputer + one-hot encoder
     categorical_transformer = Pipeline(steps=[
         ('imputer', SimpleImputer(strategy='constant', fill_value='missing')),
-        ('onehot', OneHotEncoder(handle_unknown='ignore'))])
-    
+        ('onehot', OneHotEncoder(handle_unknown='ignore'))
+        ]) 
     # Instantiate column transformer
     preprocessor = ColumnTransformer(transformers=[
         ('num', numeric_transformer, numeric_features),
-        ('cat', categorical_transformer, categorical_features)])
-    
+        ('cat', categorical_transformer, categorical_features)
+        ])  
     # Ignore Data Conversion Warning
     warnings.filterwarnings(action='ignore', category=DataConversionWarning)
     
     # Fit column transformer and transform data
-    transformed_features = preprocessor.fit_transform(
-        data[numeric_features + categorical_features])
+    transformed_features = preprocessor\
+        .fit_transform(data[numeric_features + categorical_features])
     # Transform data to numpy array if necessary
     try:
         array_features = transformed_features.toarray()
@@ -588,8 +629,8 @@ def linear_model(data, outcome, ind_var='total_reviews',
         # Fit the model
         lm.fit(X, y)
         # Print coefficient of independent variable
-        print('Coefficient on "{}":   {:.2f}%'.format(
-            ind_var, 100 * lm.coef_[0][0]))
+        print('Coefficient on "{}":   {:.2f}%'\
+            .format(ind_var, 100 * lm.coef_[0][0]))
     
     # If outcome is 'price'
     elif outcome == 'price':
@@ -598,7 +639,8 @@ def linear_model(data, outcome, ind_var='total_reviews',
         # Fit the model
         lm.fit(X, y)
         # Print coefficient of independent variable
-        print('Coefficient on "{}":   $ {:.2f}'.format(
-            ind_var, lm.coef_[0][0]))
+        print('Coefficient on "{}":   $ {:.2f}'\
+            .format(ind_var, lm.coef_[0][0]))
+    
     #Return fitted model, 'X', and 'y'
     return lm, X, y
