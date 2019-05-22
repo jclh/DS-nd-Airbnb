@@ -143,7 +143,7 @@ def missing_by_column(data, data_name, n_features=None):
         data (dict): Hierarchical dict with city as the first level and 
             dataset type — calendar, listings, reviews — as the second.
         data_name (str): 'all', 'calendar', 'listings', or 'reviews'.
-        n_features (int): Number of features to print
+        n_features (int): Number of features to print.
     
     Returns: 
         None. Print missing values per column statistics.
@@ -580,9 +580,9 @@ def linear_model(data, outcome, ind_var='total_reviews',
             dataset type — calendar, listings, reviews — as the second.
         outcome (str): 'price' or 'log_price'.
         ind_var (str): 'total_reviews' or 'reviewed'.
-        numeric_features (list): Column names for numeric covariates 
+        numeric_features (list): Column names for numeric covariates. 
         categorical_features (list): Column names for categorical 
-        covariates
+            covariates.
 
     Returns: 
         lm (sklearn obj): fitted scikit-learn linear regression model.
