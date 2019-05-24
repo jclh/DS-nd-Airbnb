@@ -8,7 +8,7 @@
 
 ## Motivation and synopsis
 
-This project is an exercise in quantitative-business research using public Airbnb data for the cities of [Boston](https://www.kaggle.com/airbnb/boston) and [Seattle](https://www.kaggle.com/airbnb/seattle/data). 
+This project is an exercise in quantitative-business research using public Airbnb data for the cities of [Boston](https://www.kaggle.com/airbnb/boston) and [Seattle](https://www.kaggle.com/airbnb/seattle/data). This was originally built for a [Udacity](https://www.udacity.com/) program: [Data Science degree, Project 4](https://github.com/udacity/DSND_Term2).
 
 The main analysis in the project is an investigation of the following 3 questions:
 
