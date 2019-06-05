@@ -53,8 +53,8 @@ def print_data(data, city, rows=3):
     # Print shapes of dataframes 
     print('(1) Shape of datasets for {}:\n'.format(city))
     for name, df in data[city].items():
-        print('{:>8s}.csv - {:>9,.0f} x {:>2.0f}'.format(
-        name, df.shape[0], df.shape[1]))
+        print('{:>8s}.csv - {:>9,.0f} x {:>2.0f}'\
+            .format(name, df.shape[0], df.shape[1]))
     
     # Display first n rows of all 3 dataframes
     k = 1
@@ -80,17 +80,22 @@ def hist_miss_by_cols(data, data_name):
     # Set figure parameters      
     if data_name == 'all':
         fig, axes = plt.subplots(nrows=3, ncols=2, figsize=(11, 11), 
-            sharey='row')
+                                 sharey='row')
     else:
         fig, axes = plt.subplots(nrows=1, ncols=2, figsize=(11, 5), 
-            sharey='row')
+                                 sharey='row')
     
     # City-specific colors
-    city_props = {'Boston': [0, 'salmon'], 'Seattle': [1, 'plum']}
+    city_props = {
+        'Boston': [0, 'salmon'], 
+        'Seattle': [1, 'plum']
+        }
     # Dataset-specific colors
-    data_props = {'calendar': [0, 'b'], 'listings': [1, 'r'], 
-        'reviews': [2, 'g']}
-    
+    data_props = {
+        'calendar': [0, 'b'], 
+        'listings': [1, 'r'], 
+        'reviews': [2, 'g']
+        }
     # Loop over cities    
     for city, values in data.items():   
         # Check input 'data_name'
@@ -114,10 +119,10 @@ def hist_miss_by_cols(data, data_name):
             # Text box with city and dataset names
             text_box = city + '\n' + name + '.csv'
             ax.text(0.80, 0.92, text_box, transform=ax.transAxes, 
-                fontsize=14, verticalalignment='top', 
-                horizontalalignment='center', 
-                bbox=dict(boxstyle='round', facecolor=city_props[city][1], 
-                alpha=0.3))
+                    fontsize=14, verticalalignment='top', 
+                    horizontalalignment='center', 
+                    bbox=dict(boxstyle='round', facecolor=city_props[city][1], 
+                    alpha=0.3))
             # Properties of x-axis 
             ax.set_xlim(0, 100)
             ax.set_xticklabels(['{:,}%'.format(
@@ -319,10 +324,10 @@ def countplot_availability(data, city):
     sns.distplot(counter, kde=False, bins=25, color=col[city])
     # Set figure properties
     ax.text(1.07, 0.95, city, transform=ax.transAxes, fontsize=16, 
-        verticalalignment='top', horizontalalignment='center', 
-        bbox=dict(boxstyle='round', facecolor=col[city], alpha=0.3))  
+            verticalalignment='top', horizontalalignment='center', 
+            bbox=dict(boxstyle='round', facecolor=col[city], alpha=0.3))  
     ax.set_title('HISTOGRAM OF LISTING AVAILABILITY IN A YEAR', 
-        fontweight='bold')
+                 fontweight='bold')
     ax.set_xlabel('Available days in year')
     ax.set_ylabel('Total listings')
     ax.set_yticklabels(['{:,}'\
@@ -358,10 +363,15 @@ def time_series_means(data, variable, city, time_ax):
     dictionary = {'availability': 'available_re', 'price': 'price_re'}
     variable = dictionary[variable]
     # Translate keywords to city names
-    cities = {'both': ['Boston', 'Seattle']}.get(city, [city])
+    cities = {
+        'both': ['Boston', 
+        'Seattle']
+        }.get(city, [city])
     # Color scheme
-    colors = {'Boston': 'salmon', 'Seattle': 'darkviolet'}
-    
+    colors = {
+        'Boston': 'salmon', 
+        'Seattle': 'darkviolet'
+        }
     # Create figure and subplot  
     fig, ax = plt.subplots(figsize=(12, 6))
     
